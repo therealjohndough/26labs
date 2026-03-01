@@ -20,7 +20,7 @@
                 <a href="/" class="hover:text-accent transition">← Back to Site</a>
             </li>
             <li>
-                <a href="/admin/logout" class="hook:text-red-400 transition">Logout</a>
+                <a href="/admin/logout" class="hover:text-red-400 transition">Logout</a>
             </li>
         </ul>
     </div>
