@@ -48,6 +48,9 @@ $router = new Router();
 
 // Frontend routes
 $router->get('/', 'HomeController@index');
+$router->get('/services', 'HomeController@services');
+$router->get('/services/{slug}', 'HomeController@serviceDetail');
+$router->get('/contact', 'HomeController@contact');
 $router->post('/inquiry', 'HomeController@submitInquiry');
 
 // Admin routes
@@ -69,6 +72,14 @@ $router->post('/admin/case-studies/{id}/delete', 'AdminController@caseStudiesDel
 $router->get('/admin/inquiries', 'AdminController@inquiries', ['App\Core\AuthMiddleware']);
 $router->get('/admin/inquiries/{id}', 'AdminController@inquiriesView', ['App\Core\AuthMiddleware']);
 $router->post('/admin/inquiries/{id}/delete', 'AdminController@inquiriesDelete', ['App\Core\AuthMiddleware']);
+
+// Services
+$router->get('/admin/services', 'AdminController@services', ['App\Core\AuthMiddleware']);
+$router->get('/admin/services/create', 'AdminController@servicesCreate', ['App\Core\AuthMiddleware']);
+$router->post('/admin/services', 'AdminController@servicesStore', ['App\Core\AuthMiddleware']);
+$router->get('/admin/services/{id}/edit', 'AdminController@servicesEdit', ['App\Core\AuthMiddleware']);
+$router->post('/admin/services/{id}/update', 'AdminController@servicesUpdate', ['App\Core\AuthMiddleware']);
+$router->post('/admin/services/{id}/delete', 'AdminController@servicesDelete', ['App\Core\AuthMiddleware']);
 
 // Dispatch request
 $router->dispatch();
