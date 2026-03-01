@@ -16,7 +16,7 @@ $case_studies = $case_studies ?? [];
     <!-- Eyebrow -->
     <div class="mb-6 text-xs font-bold tracking-wider text-accent uppercase flex items-center gap-2">
       <span class="inline-block w-2 h-2 bg-accent rounded-full animate-pulse"></span>
-      Buffalo, NY — Est. 2003
+      Buffalo, NY — Est. 2016
     </div>
 
     <!-- Headline -->
@@ -26,7 +26,7 @@ $case_studies = $case_studies ?? [];
 
     <!-- Subheading -->
     <p class="text-base text-text-secondary max-w-2xl leading-relaxed mb-12">
-      Strategic design and brand elevation for cannabis and lifestyle leaders. We build brands that define categories, command attention, and drive revenue.
+      Founded in 2016 in Buffalo, NY — strategic design and brand elevation for cannabis and lifestyle leaders. We build brands that define categories, command attention, and drive revenue.
     </p>
 
     <!-- CTA Buttons -->
@@ -51,13 +51,14 @@ $case_studies = $case_studies ?? [];
   <span class="text-xs tracking-widest text-text-secondary/50 uppercase whitespace-nowrap flex-shrink-0">Trusted By</span>
   <div class="flex gap-16 flex-nowrap">
     <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">StockX</span>
-    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">Taco Bell</span>
+    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">High Times</span>
     <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">Real Madrid</span>
-    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">Meta</span>
-    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">Snoop Dogg</span>
-    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">McDonald's</span>
-    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">MGM Grand</span>
-    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">Skyworld Cannabis</span>
+    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">Zoe Wilder</span>
+    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">Buffalo Cannabis Network</span>
+    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">House of Sacci</span>
+    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">Eat Off Art</span>
+    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">Skyworld</span>
+    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">The Other</span>
   </div>
 </div>
 
@@ -70,21 +71,21 @@ $case_studies = $case_studies ?? [];
     </div>
 
     <div class="grid grid-cols-4 gap-0 border-b border-border">
-      <div class="pb-12 pr-10 border-r border-border last:border-r-0">
-        <div class="font-serif text-5xl md:text-6xl italic font-normal text-white mb-3">25<sup class="text-lg align-super">+</sup></div>
-        <div class="text-sm text-text-secondary/45 leading-relaxed max-w-xs">Years in sales, marketing, and brand strategy across industries</div>
+      <div class="pb-12 pr-10 border-r border-border">
+        <div class="font-serif text-5xl md:text-6xl italic font-normal text-white mb-3">300<sup class="text-lg align-super">+</sup></div>
+        <div class="text-sm text-text-secondary/45 leading-relaxed max-w-xs">Cannabis products launched across regulated markets — packaging, positioning, and go-to-market.</div>
       </div>
       <div class="pb-12 pr-10 pl-10 border-r border-border">
-        <div class="font-serif text-5xl md:text-6xl italic font-normal text-white mb-3">$2M<sup class="text-lg align-super">+</sup></div>
-        <div class="text-sm text-text-secondary/45 leading-relaxed max-w-xs">In ad spend managed for high-risk and cannabis categories since 2022</div>
+        <div class="font-serif text-5xl md:text-6xl italic font-normal text-white mb-3">100%</div>
+        <div class="text-sm text-text-secondary/45 leading-relaxed max-w-xs">Founder-led projects. No junior handoffs. No account manager telephone game.</div>
       </div>
       <div class="pb-12 pr-10 pl-10 border-r border-border">
-        <div class="font-serif text-5xl md:text-6xl italic font-normal text-white mb-3">2003</div>
-        <div class="text-sm text-text-secondary/45 leading-relaxed max-w-xs">In the cannabis industry before it was mainstream — we know the terrain</div>
+        <div class="font-serif text-5xl md:text-6xl italic font-normal text-white mb-3">0</div>
+        <div class="text-sm text-text-secondary/45 leading-relaxed max-w-xs">OCM compliance failures across launched packaging and campaigns.</div>
       </div>
       <div class="pb-12 pl-10">
-        <div class="font-serif text-5xl md:text-6xl italic font-normal text-white mb-3">0</div>
-        <div class="text-sm text-text-secondary/45 leading-relaxed max-w-xs">Decks that collect dust. Everything we build gets deployed</div>
+        <div class="font-serif text-5xl md:text-6xl italic font-normal text-white mb-3">1,000<sup class="text-lg align-super">+</sup></div>
+        <div class="text-sm text-text-secondary/45 leading-relaxed max-w-xs">Retail touchpoints where our work drives the first impression.</div>
       </div>
     </div>
   </div>
@@ -204,7 +205,7 @@ $case_studies = $case_studies ?? [];
 
 <!-- CTA Section -->
 <section class="border-b border-border relative overflow-hidden">
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-9xl italic text-white opacity-3 pointer-events-none whitespace-nowrap" style="font-size: clamp(100px, 18vw, 260px); white-space: nowrap;">Deploy</div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-9xl italic text-white opacity-5 pointer-events-none whitespace-nowrap" style="font-size: clamp(100px, 18vw, 260px); white-space: nowrap;">Deploy</div>
 
   <div class="relative z-10 px-12 py-32 text-center">
     <div class="text-xs font-bold tracking-wider text-accent uppercase mb-6 flex justify-center items-center gap-2">

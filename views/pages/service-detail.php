@@ -147,7 +147,7 @@ $case_studies = $case_studies ?? [];
 
 <!-- CTA Band -->
 <section class="border-b border-border relative overflow-hidden">
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-9xl italic text-white opacity-3 pointer-events-none whitespace-nowrap" style="font-size: clamp(100px, 18vw, 260px);">Strategy</div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-9xl italic text-white opacity-5 pointer-events-none whitespace-nowrap" style="font-size: clamp(100px, 18vw, 260px);">Strategy</div>
 
   <div class="relative z-10 px-12 py-32 text-center">
     <div class="text-xs font-bold tracking-wider text-accent uppercase mb-6 flex justify-center items-center gap-2">

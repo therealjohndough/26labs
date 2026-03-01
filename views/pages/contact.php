@@ -5,7 +5,7 @@
 <!-- Contact Hero -->
 <section class="min-h-screen px-12 py-32 flex items-center justify-center border-b border-border relative overflow-hidden">
   <!-- Background text -->
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-9xl italic text-white opacity-3 pointer-events-none whitespace-nowrap" style="font-size: clamp(100px, 18vw, 260px);">Contact</div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-9xl italic text-white opacity-5 pointer-events-none whitespace-nowrap" style="font-size: clamp(100px, 18vw, 260px);">Contact</div>
 
   <div class="relative z-10 max-w-2xl w-full text-center">
     <div class="text-xs font-bold tracking-wider text-accent uppercase mb-6 flex justify-center items-center gap-2">
@@ -124,7 +124,7 @@
 
 <!-- Final CTA -->
 <section class="relative overflow-hidden">
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-9xl italic text-white opacity-3 pointer-events-none whitespace-nowrap" style="font-size: clamp(100px, 18vw, 260px);">Go</div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-9xl italic text-white opacity-5 pointer-events-none whitespace-nowrap" style="font-size: clamp(100px, 18vw, 260px);">Go</div>
 
   <div class="relative z-10 px-12 py-32 text-center">
     <div class="text-xs font-bold tracking-wider text-accent uppercase mb-6 flex justify-center items-center gap-2">
