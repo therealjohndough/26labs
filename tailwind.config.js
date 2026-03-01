@@ -13,6 +13,7 @@ module.exports = {
         white: '#f5f2ee',
         cream: '#ede9e3',
         accent: '#c8f04a',      // Electric lime
+        primary: '#c8f04a',     // Alias for accent — used in @apply directives
         mid: '#1a1a1a',
         dark: '#0a0a0a',
         light: '#f5f2ee',
