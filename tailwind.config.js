@@ -25,7 +25,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
-        serif: ['Georgia', 'Times New Roman', 'serif']
+        serif: ['CaseStudyPixel', 'Georgia', 'Times New Roman', 'serif']
       },
       fontSize: {
         eyebrow: ['11px', { letterSpacing: '0.22em' }],

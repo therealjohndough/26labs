@@ -3,6 +3,22 @@
  * Tailwind handles utility classes. This file sets global defaults only.
  */
 
+/* Custom Fonts */
+@font-face {
+    font-family: 'CaseStudyPixel';
+    src: url('/fonts/Case_Study_Labs_Pixel-Regular-.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'CaseStudyPixel';
+    src: url('/fonts/Case_Study_Labs_Pixel-Regular-.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
 /* Reset */
 *, *::before, *::after {
     margin: 0;
