@@ -1,214 +1,219 @@
 <?php
-// This view expects the following variables:
-// - title: Page title
-// - caseStudies: Array of case studies
-// - posts: Array of blog posts
-// - services: Array of services
-// - stats: Array of stats
-// - csrf_token: CSRF token
-// - csrf_field: CSRF field name
+// HomePage for Case Study Labs
+// Variables passed: $services, $case_studies
+$services = $services ?? [];
+$case_studies = $case_studies ?? [];
 ?>
 
 <!-- Hero Section -->
-<section id="hero" class="hero">
-    <div class="hero-content">
-        <h1>Elevate Your Brand</h1>
-        <p class="hero-subtitle">Premium creative direction for ambitious brands</p>
-        <button class="btn-primary" data-scroll-to="inquiry">Start Your Project</button>
+<section class="min-h-screen flex flex-col justify-end px-12 py-20 border-b border-border relative overflow-hidden">
+  <!-- Background text -->
+  <div class="absolute top-1/2 left-12 -translate-y-1/2 text-8xl md:text-9xl font-serif italic text-white opacity-5 pointer-events-none whitespace-nowrap" style="font-size: clamp(80px, 12vw, 180px);">
+    Inspire
+  </div>
+
+  <div class="relative z-10">
+    <!-- Eyebrow -->
+    <div class="mb-6 text-xs font-bold tracking-wider text-accent uppercase flex items-center gap-2">
+      <span class="inline-block w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+      Buffalo, NY — Est. 2003
     </div>
-    <div class="hero-image">
-        <div class="placeholder-image"></div>
+
+    <!-- Headline -->
+    <h1 class="font-serif text-5xl md:text-7xl italic font-normal leading-tight mb-10 max-w-3xl">
+      Strategy You Can<br><span class="text-accent">Deploy.</span>
+    </h1>
+
+    <!-- Subheading -->
+    <p class="text-base text-text-secondary max-w-2xl leading-relaxed mb-12">
+      Strategic design and brand elevation for cannabis and lifestyle leaders. We build brands that define categories, command attention, and drive revenue.
+    </p>
+
+    <!-- CTA Buttons -->
+    <div class="flex gap-5 items-center">
+      <a href="/contact" class="bg-accent text-black px-8 py-3 font-bold text-xs tracking-widest uppercase hover:opacity-85 transition">
+        Start a Project
+      </a>
+      <a href="/services" class="text-text-secondary text-xs tracking-widest uppercase border-b border-text-secondary/25 pb-0.5 hover:text-white hover:border-white transition">
+        See Our Work ↗
+      </a>
     </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-20 right-12 text-xs tracking-wider text-text-secondary/50 uppercase" style="writing-mode: vertical-rl; transform: rotate(180deg);">
+      Scroll to explore
+    </div>
+  </div>
 </section>
 
-<!-- Project Inquiry Form -->
-<section id="inquiry" class="inquiry-section">
-    <div class="container">
-        <h2>Tell Us About Your Project</h2>
-        <form id="inquiryForm" class="inquiry-form">
-            <input type="hidden" name="<?php echo htmlspecialchars($csrf_field); ?>" value="<?php echo htmlspecialchars($csrf_token); ?>">
-            
-            <div class="form-group">
-                <label for="name">Name *</label>
-                <input type="text" id="name" name="name" required>
-            </div>
+<!-- Trust Bar -->
+<div class="px-12 py-8 border-b border-border flex items-center gap-20 overflow-auto">
+  <span class="text-xs tracking-widest text-text-secondary/50 uppercase whitespace-nowrap flex-shrink-0">Trusted By</span>
+  <div class="flex gap-16 flex-nowrap">
+    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">StockX</span>
+    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">Taco Bell</span>
+    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">Real Madrid</span>
+    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">Meta</span>
+    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">Snoop Dogg</span>
+    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">McDonald's</span>
+    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">MGM Grand</span>
+    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">Skyworld Cannabis</span>
+  </div>
+</div>
 
-            <div class="form-group">
-                <label for="company">Company</label>
-                <input type="text" id="company" name="company">
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email *</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-
-            <div class="form-group">
-                <label for="services">Services Interested In</label>
-                <div class="checkboxes">
-                    <label><input type="checkbox" name="services[]" value="Brand Strategy"> Brand Strategy</label>
-                    <label><input type="checkbox" name="services[]" value="Visual Identity"> Visual Identity</label>
-                    <label><input type="checkbox" name="services[]" value="Web Design"> Web Design</label>
-                    <label><input type="checkbox" name="services[]" value="Creative Direction"> Creative Direction</label>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="budget">Budget Range</label>
-                <select id="budget" name="budget">
-                    <option value="">Select budget range</option>
-                    <option value="5k-10k">$5,000 - $10,000</option>
-                    <option value="10k-25k">$10,000 - $25,000</option>
-                    <option value="25k-50k">$25,000 - $50,000</option>
-                    <option value="50k+">$50,000+</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="message">Message *</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-
-            <button type="submit" class="btn-primary btn-wide">Submit Inquiry</button>
-            <div id="formMessage" class="form-feedback"></div>
-        </form>
+<!-- Stats Section -->
+<section class="border-b border-border">
+  <div class="px-12 py-24">
+    <div class="text-xs tracking-widest text-text-secondary/50 uppercase mb-16 flex items-center gap-4">
+      <span class="inline-block w-2 h-2 bg-accent rounded-full"></span>
+      Serious Facts
     </div>
-</section>
 
-<!-- Stats Row -->
-<section class="stats">
-    <div class="container">
-        <div class="stats-grid">
-            <?php foreach ($stats as $stat): ?>
-            <div class="stat-item">
-                <div class="stat-value"><?php echo htmlspecialchars($stat['value']); ?></div>
-                <div class="stat-label"><?php echo htmlspecialchars($stat['label']); ?></div>
-            </div>
-            <?php endforeach; ?>
-        </div>
+    <div class="grid grid-cols-4 gap-0 border-b border-border">
+      <div class="pb-12 pr-10 border-r border-border last:border-r-0">
+        <div class="font-serif text-5xl md:text-6xl italic font-normal text-white mb-3">25<sup class="text-lg align-super">+</sup></div>
+        <div class="text-sm text-text-secondary/45 leading-relaxed max-w-xs">Years in sales, marketing, and brand strategy across industries</div>
+      </div>
+      <div class="pb-12 pr-10 pl-10 border-r border-border">
+        <div class="font-serif text-5xl md:text-6xl italic font-normal text-white mb-3">$2M<sup class="text-lg align-super">+</sup></div>
+        <div class="text-sm text-text-secondary/45 leading-relaxed max-w-xs">In ad spend managed for high-risk and cannabis categories since 2022</div>
+      </div>
+      <div class="pb-12 pr-10 pl-10 border-r border-border">
+        <div class="font-serif text-5xl md:text-6xl italic font-normal text-white mb-3">2003</div>
+        <div class="text-sm text-text-secondary/45 leading-relaxed max-w-xs">In the cannabis industry before it was mainstream — we know the terrain</div>
+      </div>
+      <div class="pb-12 pl-10">
+        <div class="font-serif text-5xl md:text-6xl italic font-normal text-white mb-3">0</div>
+        <div class="text-sm text-text-secondary/45 leading-relaxed max-w-xs">Decks that collect dust. Everything we build gets deployed</div>
+      </div>
     </div>
-</section>
-
-<!-- About Section -->
-<section id="about" class="about">
-    <div class="container">
-        <h2>About 26 Labs</h2>
-        <p>We're a premium creative agency founded on the belief that great design transforms brands. Our multidisciplinary team brings together strategy, design, and technology to create unforgettable experiences.</p>
-    </div>
+  </div>
 </section>
 
 <!-- Services Section -->
-<section id="services" class="services">
-    <div class="container">
-        <h2>Our Services</h2>
-        <div class="services-grid">
-            <?php foreach ($services as $service): ?>
-            <div class="service-card">
-                <h3><?php echo htmlspecialchars($service['title']); ?></h3>
-                <p><?php echo htmlspecialchars($service['description']); ?></p>
-                <?php if ($service['bullets']): ?>
-                <ul>
-                    <?php foreach (explode("\n", $service['bullets']) as $bullet): ?>
-                        <?php if (trim($bullet)): ?>
-                        <li><?php echo htmlspecialchars(trim($bullet)); ?></li>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                </ul>
-                <?php endif; ?>
-            </div>
-            <?php endforeach; ?>
-        </div>
+<section class="border-b border-border" id="services">
+  <div class="px-12 py-24">
+    <div class="text-xs tracking-widest text-text-secondary/50 uppercase mb-16">
+      <span class="inline-block w-2 h-2 bg-accent rounded-full align-middle mr-2"></span>
+      What We Do
     </div>
+
+    <div class="grid grid-cols-2 gap-24 mb-20">
+      <h2 class="font-serif text-4xl md:text-5xl italic font-normal leading-tight">Crafting premium brands that move culture and convert buyers.</h2>
+      <p class="text-base text-text-secondary leading-relaxed self-end">We don't do theoretical frameworks. Every engagement ends in deployed strategy, real assets, and measurable impact. For cannabis, lifestyle, and the brands that dare to lead.</p>
+    </div>
+
+    <div class="space-y-0">
+      <?php foreach ($services as $i => $service): $num = str_pad($i + 1, 2, '0', STR_PAD_LEFT); ?>
+      <a href="/services/<?= htmlspecialchars($service['slug'] ?? '') ?>" class="grid grid-cols-[56px_1fr_200px_80px] gap-8 py-9 border-t border-border hover:bg-white/2 transition">
+        <span class="text-xs tracking-widest text-text-secondary/20"><?= $num ?></span>
+        <span class="font-serif text-2xl italic font-normal"><?= htmlspecialchars($service['title']) ?></span>
+        <span class="text-xs text-text-secondary/35 leading-relaxed"><?= htmlspecialchars(substr($service['short_description'] ?? '', 0, 80)) ?> ...</span>
+        <span class="text-right text-lg text-text-secondary/20 hover:text-accent transition">↗</span>
+      </a>
+      <?php endforeach; ?>
+    </div>
+  </div>
 </section>
 
-<!-- Case Studies Section -->
-<section id="cases" class="case-studies">
-    <div class="container">
-        <h2>Featured Work</h2>
-        <div class="case-grid">
-            <?php foreach ($caseStudies as $case): ?>
-            <div class="case-card">
-                <?php if ($case['hero_image']): ?>
-                <div class="case-image">
-                    <img src="<?php echo htmlspecialchars($case['hero_image']); ?>" alt="<?php echo htmlspecialchars($case['title']); ?>">
-                </div>
-                <?php endif; ?>
-                <div class="case-content">
-                    <h3><?php echo htmlspecialchars($case['title']); ?></h3>
-                    <p class="case-client"><?php echo htmlspecialchars($case['client_name']); ?></p>
-                    <p><?php echo htmlspecialchars($case['description']); ?></p>
-                    <?php if ($case['tags']): ?>
-                    <div class="case-tags">
-                        <?php foreach (explode(',', $case['tags']) as $tag): ?>
-                            <span class="tag"><?php echo htmlspecialchars(trim($tag)); ?></span>
-                        <?php endforeach; ?>
-                    </div>
-                    <?php endif; ?>
-                </div>
-            </div>
-            <?php endforeach; ?>
-        </div>
+<!-- Work Section -->
+<section class="border-b border-border" id="work">
+  <div class="px-12 py-24">
+    <div class="flex justify-between items-end mb-16">
+      <div class="text-xs tracking-widest text-text-secondary/50 uppercase">
+        <span class="inline-block w-2 h-2 bg-accent rounded-full align-middle mr-2"></span>
+        Selected Work
+      </div>
+      <a href="/work" class="text-xs tracking-widest text-text-secondary/50 hover:text-white uppercase border-b border-text-secondary/25 pb-0.5">View All Cases</a>
     </div>
+
+    <h2 class="font-serif text-4xl md:text-5xl italic font-normal leading-tight mb-16 max-w-3xl">We deliver outcomes,<br>not services.</h2>
+
+    <div class="grid grid-cols-3 gap-0.5 bg-mid">
+      <?php foreach (array_slice($case_studies, 0, 6) as $i => $study): ?>
+      <div class="aspect-video bg-mid relative overflow-hidden group cursor-pointer">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900 to-blue-800 group-hover:scale-105 transition-transform duration-500"></div>
+        <div class="absolute bottom-6 left-6 right-6 group-hover:opacity-0 transition-opacity">
+          <div class="font-serif text-lg italic"><?= htmlspecialchars($study['title']) ?></div>
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+          <div class="text-xs tracking-widest text-accent uppercase mb-2">Branding · Web · Strategy</div>
+          <div class="font-serif text-lg italic mb-1"><?= htmlspecialchars($study['title']) ?></div>
+          <div class="text-xs text-text-secondary/65"><?= htmlspecialchars(substr($study['description'] ?? '', 0, 100)) ?>...</div>
+        </div>
+      </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
 </section>
 
-<!-- Blog/Insights Section -->
-<section id="insights" class="insights">
-    <div class="container">
-        <h2>Latest Insights</h2>
-        <div class="posts-grid">
-            <?php foreach ($posts as $post): ?>
-            <article class="post-card">
-                <?php if ($post['featured_image']): ?>
-                <div class="post-image">
-                    <img src="<?php echo htmlspecialchars($post['featured_image']); ?>" alt="<?php echo htmlspecialchars($post['title']); ?>">
-                </div>
-                <?php endif; ?>
-                <div class="post-content">
-                    <time class="post-date"><?php echo date('M d, Y', strtotime($post['publish_date'])); ?></time>
-                    <h3><?php echo htmlspecialchars($post['title']); ?></h3>
-                    <p><?php echo htmlspecialchars(substr($post['content'], 0, 150)) . '...'; ?></p>
-                </div>
-            </article>
-            <?php endforeach; ?>
-        </div>
+<!-- Values Section -->
+<section class="border-b border-border" id="studio">
+  <div class="px-12 py-24">
+    <div class="text-xs tracking-widest text-text-secondary/50 uppercase mb-16">
+      <span class="inline-block w-2 h-2 bg-accent rounded-full align-middle mr-2"></span>
+      Our Lab Values
     </div>
+
+    <h2 class="font-serif text-4xl md:text-5xl italic font-normal leading-tight max-w-2xl mb-24">Made to Inspire.<br>Built to deploy.</h2>
+
+    <div class="grid grid-cols-3 gap-0 border-b border-border">
+      <div class="pb-12 pr-10 border-r border-border">
+        <div class="text-xs tracking-widest text-text-secondary/20 mb-5">01</div>
+        <div class="font-serif text-2xl italic font-normal mb-3">Taste is Strategy</div>
+        <div class="text-sm text-text-secondary/45 leading-relaxed">Design isn't decoration — it's direction. How your brand looks tells the market what to think about how you operate.</div>
+      </div>
+      <div class="pb-12 px-10 border-r border-border">
+        <div class="text-xs tracking-widest text-text-secondary/20 mb-5">02</div>
+        <div class="font-serif text-2xl italic font-normal mb-3">Clarity is Currency</div>
+        <div class="text-sm text-text-secondary/45 leading-relaxed">Clear brands grow. We remove the noise and sharpen your signal until every asset earns its place.</div>
+      </div>
+      <div class="pb-12 pl-10">
+        <div class="text-xs tracking-widest text-text-secondary/20 mb-5">03</div>
+        <div class="font-serif text-2xl italic font-normal mb-3">Collaboration Over Control</div>
+        <div class="text-sm text-text-secondary/45 leading-relaxed">We co-create, not babysit. The best work happens when founders stay in the room and trust the process.</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<script>
-document.getElementById('inquiryForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const formData = new FormData(e.target);
-    const messageDiv = document.getElementById('formMessage');
-    
-    try {
-        const response = await fetch('/inquiry', {
-            method: 'POST',
-            body: formData
-        });
-        
-        const data = await response.json();
-        
-        if (response.ok) {
-            messageDiv.className = 'form-feedback success';
-            messageDiv.textContent = data.message;
-            e.target.reset();
-        } else {
-            messageDiv.className = 'form-feedback error';
-            messageDiv.textContent = data.error || 'An error occurred';
-        }
-    } catch (error) {
-        messageDiv.className = 'form-feedback error';
-        messageDiv.textContent = 'Failed to submit form';
-    }
-});
+<!-- Fit Check Section -->
+<section class="border-b border-border">
+  <div class="grid grid-cols-2 gap-0.5">
+    <div class="px-12 py-24 bg-white/3">
+      <div class="text-xs tracking-widest text-accent uppercase mb-10">A Good Fit</div>
+      <div class="space-y-5">
+        <div class="pb-5 border-b border-border text-base text-text-secondary/70">You see design as a business multiplier</div>
+        <div class="pb-5 border-b border-border text-base text-text-secondary/70">You value speed, taste, and strategy</div>
+        <div class="pb-5 border-b border-border text-base text-text-secondary/70">You want to build legacy — not chase hype</div>
+        <div class="text-base text-text-secondary/70">You're in cannabis, lifestyle, or an emerging space</div>
+      </div>
+    </div>
 
-document.querySelectorAll('[data-scroll-to]').forEach(el => {
-    el.addEventListener('click', (e) => {
-        const target = document.getElementById(e.target.dataset.scrollTo);
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-});
-</script>
+    <div class="px-12 py-24 bg-white/1">
+      <div class="text-xs tracking-widest text-text-secondary/30 uppercase mb-10">Not a Good Fit</div>
+      <div class="space-y-5">
+        <div class="pb-5 border-b border-border text-base text-text-secondary/70">Micromanagers and design-by-committee</div>
+        <div class="pb-5 border-b border-border text-base text-text-secondary/70">"Just need a quick logo" shoppers</div>
+        <div class="pb-5 border-b border-border text-base text-text-secondary/70">Startups with no direction or no budget</div>
+        <div class="text-base text-text-secondary/70">Brands unwilling to evolve their positioning</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="border-b border-border relative overflow-hidden">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-9xl italic text-white opacity-3 pointer-events-none whitespace-nowrap" style="font-size: clamp(100px, 18vw, 260px); white-space: nowrap;">Deploy</div>
+
+  <div class="relative z-10 px-12 py-32 text-center">
+    <div class="text-xs font-bold tracking-wider text-accent uppercase mb-6 flex justify-center items-center gap-2">
+      <span class="inline-block w-2 h-2 bg-accent rounded-full animate-pulse"></span>Ready when you are
+    </div>
+    <h2 class="font-serif text-5xl md:text-6xl italic font-normal leading-tight max-w-3xl mx-auto mb-10">Let's build something the market won't forget.</h2>
+    <div class="flex gap-5 justify-center">
+      <a href="mailto:dough@casestudy-labs.com" class="bg-accent text-black px-8 py-3 font-bold text-xs tracking-widest uppercase hover:opacity-85 transition">Send a Message</a>
+      <a href="https://calendar.app.google/wjzdm2J4EUE1oxh36" target="_blank" class="text-text-secondary text-xs tracking-widest uppercase border-b border-text-secondary/25 pb-0.5 hover:text-white hover:border-white transition">Book a Discovery Call ↗</a>
+    </div>
+  </div>
+</section>
