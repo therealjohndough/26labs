@@ -44,13 +44,14 @@ DB_HOST=localhost
 4. Upload all project files
 
 **Important directories:**
+
 - Everything should be in `public_html` or subdirectory
 - The `/public` folder contains the web-accessible files
 - Keep other files outside public root for security
 
 ### Directory Layout on Server
 
-```
+```text
 public_html/
 ├── 26labs/                    # Project root
 │   ├── public/               # Web root
@@ -195,6 +196,7 @@ MAIL_PASS=your_password
 **Problem:** mod_rewrite not working
 
 **Solutions:**
+
 ```bash
 # Check if enabled in SiteGround (usually is)
 # In cPanel: Apache Handlers/PHP Version
@@ -211,6 +213,7 @@ MAIL_PASS=your_password
 **Problem:** PHP error or missing files
 
 **Solutions:**
+
 ```bash
 # Check error logs:
 # cPanel → Error Log (watch tail -f)
@@ -227,6 +230,7 @@ MAIL_PASS=your_password
 **Problem:** Wrong credentials or permissions
 
 **Solutions:**
+
 ```bash
 # Verify .env:
 # Double check DB_HOST, DB_NAME, DB_USER, DB_PASS
@@ -244,6 +248,7 @@ MAIL_PASS=your_password
 **Problem:** storage/uploads not writable
 
 **Solutions:**
+
 ```bash
 # Set permissions:
 chmod 777 storage/uploads
@@ -260,6 +265,7 @@ chown -R nobody:nobody storage/
 **Problem:** Sessions not persisting
 
 **Solutions:**
+
 ```bash
 # Check session path is writable:
 chmod 777 storage/
@@ -283,6 +289,7 @@ session.save_path = "/home/username/public_html/26labs/storage"
 ### Optimize Images
 
 Before uploading images:
+
 ```bash
 # Use ImageMagick or online tools
 convert image.jpg -quality 85 image-optimized.jpg
@@ -293,6 +300,7 @@ convert image.jpg -quality 85 image-optimized.jpg
 ### Database Optimization
 
 Via phpMyAdmin:
+
 ```sql
 -- Optimize all tables
 REPAIR TABLE `case_studies`;
@@ -322,6 +330,7 @@ tail -f ~/public_html/26labs/storage/logs/app.log
 ### Update Admin Password
 
 After first login:
+
 1. Access `/admin` panel
 2. Use "Change Password" (implement if needed)
 3. Or directly in database (hash with PHP):
@@ -333,6 +342,7 @@ echo password_hash('new_password', PASSWORD_ARGON2ID);
 ```
 
 Then update in MySQL:
+
 ```sql
 UPDATE users SET password = 'hashed_password' WHERE id = 1;
 ```
@@ -381,6 +391,49 @@ Before going live:
 - [ ] Backup database
 - [ ] Test all forms and functionality
 - [ ] Monitor error logs
+
+## Known Issues Fixed on First Deploy
+
+The following bugs were discovered and patched during the initial production deploy (2026-03-01). All fixes are committed to `main`.
+
+### 1. Middleware.php duplicate class declarations
+
+**Problem:** `app/Core/Middleware.php` declared `AuthMiddleware` and `GuestMiddleware` inline. After those classes were split into their own files (`AuthMiddleware.php`, `GuestMiddleware.php`), the autoloader loaded both files, causing a fatal "class already declared" error on every request.
+
+**Fix:** Stripped `Middleware.php` down to the abstract base class only. The concrete middleware classes live exclusively in their own files.
+
+**Commit:** `fa152c4`
+
+---
+
+### 2. schema.sql duplicate KEY names
+
+**Problem:** Three tables declared a column as `UNIQUE` (which auto-creates an index) and then also declared an explicit `KEY` with the same name. MySQL 8 rejects this, preventing any tables from being created.
+
+Affected tables and columns:
+- `users.email`
+- `posts.slug`
+- `services.slug`
+
+**Fix:** Removed the redundant explicit `KEY` definitions. The `UNIQUE` constraint already handles indexing.
+
+**Commit:** `38aed22`
+
+---
+
+### 3. public_html symlinked to public/ for Apache DocumentRoot compatibility
+
+**Problem:** SiteGround sets the Apache DocumentRoot to `~/www/domain/public_html/`. The project's web root is `public/`. The FTP upload had placed files directly in `public_html/`, but after switching to a git-based deploy the two directories diverged.
+
+**Fix:** Removed the stale `public_html/` directory and replaced it with a symlink:
+
+```bash
+cd ~/www/johnd517.sg-host.com
+rm -rf public_html
+ln -s public public_html
+```
+
+Apache now serves from `public/` via the symlink. Future `git pull` deploys automatically stay in sync — no manual file copying required.
 
 ---
 
