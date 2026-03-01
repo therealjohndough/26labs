@@ -206,6 +206,139 @@ class AdminController {
         exit;
     }
 
+    // Services management
+    public function services(): void {
+        Auth::requireAuth();
+
+        $services = Service::all();
+
+        $this->render('admin/services/list', [
+            'title' => 'Services',
+            'user' => Auth::getUser(),
+            'services' => $services,
+            'csrf_token' => CSRF::getToken(),
+            'csrf_field' => CSRF::getFieldName(),
+        ]);
+    }
+
+    public function servicesCreate(): void {
+        Auth::requireAuth();
+
+        $this->render('admin/services/create', [
+            'title' => 'Create Service',
+            'user' => Auth::getUser(),
+            'csrf_token' => CSRF::getToken(),
+            'csrf_field' => CSRF::getFieldName(),
+        ]);
+    }
+
+    public function servicesStore(): void {
+        Auth::requireAuth();
+
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            http_response_code(405);
+            exit;
+        }
+
+        $csrf = $_POST[CSRF::getFieldName()] ?? '';
+        if (!CSRF::verify($csrf)) {
+            http_response_code(403);
+            die('CSRF token invalid');
+        }
+
+        $data = [
+            'title' => htmlspecialchars($_POST['title'] ?? ''),
+            'slug' => htmlspecialchars($_POST['slug'] ?? ''),
+            'short_description' => htmlspecialchars($_POST['short_description'] ?? ''),
+            'description' => htmlspecialchars($_POST['description'] ?? ''),
+            'icon' => htmlspecialchars($_POST['icon'] ?? ''),
+            'position' => (int)($_POST['position'] ?? 0),
+        ];
+
+        if (!Service::create($data)) {
+            header('Location: /admin/services/create?error=1');
+            exit;
+        }
+
+        header('Location: /admin/services?success=1');
+        exit;
+    }
+
+    public function servicesEdit(string $id): void {
+        Auth::requireAuth();
+
+        $service = Service::find((int)$id);
+        if (!$service) {
+            http_response_code(404);
+            exit;
+        }
+
+        $this->render('admin/services/edit', [
+            'title' => 'Edit Service',
+            'user' => Auth::getUser(),
+            'service' => $service,
+            'csrf_token' => CSRF::getToken(),
+            'csrf_field' => CSRF::getFieldName(),
+        ]);
+    }
+
+    public function servicesUpdate(string $id): void {
+        Auth::requireAuth();
+
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            http_response_code(405);
+            exit;
+        }
+
+        $csrf = $_POST[CSRF::getFieldName()] ?? '';
+        if (!CSRF::verify($csrf)) {
+            http_response_code(403);
+            die('CSRF token invalid');
+        }
+
+        $service = Service::find((int)$id);
+        if (!$service) {
+            http_response_code(404);
+            exit;
+        }
+
+        $data = [
+            'title' => htmlspecialchars($_POST['title'] ?? ''),
+            'slug' => htmlspecialchars($_POST['slug'] ?? ''),
+            'short_description' => htmlspecialchars($_POST['short_description'] ?? ''),
+            'description' => htmlspecialchars($_POST['description'] ?? ''),
+            'icon' => htmlspecialchars($_POST['icon'] ?? ''),
+            'position' => (int)($_POST['position'] ?? 0),
+        ];
+
+        if (!Service::update((int)$id, $data)) {
+            header('Location: /admin/services/' . $id . '/edit?error=1');
+            exit;
+        }
+
+        header('Location: /admin/services?success=1');
+        exit;
+    }
+
+    public function servicesDelete(string $id): void {
+        Auth::requireAuth();
+
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            http_response_code(405);
+            exit;
+        }
+
+        $csrf = $_POST[CSRF::getFieldName()] ?? '';
+        if (!CSRF::verify($csrf)) {
+            http_response_code(403);
+            die('CSRF token invalid');
+        }
+
+        Service::delete((int)$id);
+        header('Location: /admin/services?success=1');
+        exit;
+    }
+
     private function render(string $view, array $data = []): void {
         extract($data);
         require __DIR__ . '/../../views/' . $view . '.php';

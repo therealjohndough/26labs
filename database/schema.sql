@@ -46,13 +46,20 @@ CREATE TABLE IF NOT EXISTS `posts` (
 CREATE TABLE IF NOT EXISTS `services` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `title` VARCHAR(255) NOT NULL,
+  `slug` VARCHAR(255) UNIQUE NOT NULL,
   `description` LONGTEXT,
+  `short_description` VARCHAR(500),
+  `icon` VARCHAR(50),
   `bullets` LONGTEXT,
+  `deliverables` LONGTEXT,
+  `who_for` LONGTEXT,
+  `engagement_types` LONGTEXT,
   `order_index` INT DEFAULT 0,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` TIMESTAMP NULL,
-  KEY `order_index` (`order_index`)
+  KEY `order_index` (`order_index`),
+  KEY `slug` (`slug`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS `stats` (
@@ -83,12 +90,14 @@ CREATE TABLE IF NOT EXISTS `inquiries` (
   KEY `read_at` (`read_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Insert default services
-INSERT IGNORE INTO `services` (`title`, `description`, `order_index`) VALUES
-  ('Brand Strategy', 'Strategic brand positioning and market analysis', 1),
-  ('Visual Identity & Packaging', 'Logo design, color systems, and packaging solutions', 2),
-  ('Website & Digital', 'Web design, development, and digital experiences', 3),
-  ('Creative Direction', 'Art direction and creative leadership', 4);
+-- Insert Case Study Labs services
+INSERT IGNORE INTO `services` (`title`, `slug`, `description`, `short_description`, `order_index`) VALUES
+  ('Brand Strategy', 'brand-strategy', 'The foundation everything else is built on.', 'Market research, positioning, messaging architecture, verbal identity, and naming.', 1),
+  ('Branding & Production', 'branding-production', 'Visual identity built to command attention and stand the test of time.', 'Logotype, typography, visual language, motion, brand guidelines, and brand applications.', 2),
+  ('Web Design', 'web-design', 'Websites that convert and don\'t embarrass you.', 'UX strategy, custom WordPress development, e-commerce, editorial CMS, motion, and performance.', 3),
+  ('Media Buying', 'media-buying', '$2M+ deployed. Zero wasted in decks.', 'High-risk category strategy, paid social, performance creative, cannabis networks, attribution, and retargeting.', 4),
+  ('Content & Social', 'content-social', 'Content that builds culture, not just a following.', 'Content strategy, editorial production, campaign creative, social management, influencer strategy, and visual production.', 5),
+  ('Lifecycle Marketing', 'lifecycle-marketing', 'The money is in the list. We help you keep it.', 'Email programs, segmentation, automation, CRM setup, retention campaigns, and reporting.', 6);
 
 -- Insert default stats
 INSERT IGNORE INTO `stats` (`label`, `value`, `order_index`) VALUES

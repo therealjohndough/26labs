@@ -9,14 +9,20 @@ class Service {
         $db = Database::getConnection();
 
         $stmt = $db->prepare(
-            'INSERT INTO services (title, description, bullets, order_index, created_at) 
-             VALUES (?, ?, ?, ?, NOW())'
+            'INSERT INTO services (title, description, short_description, slug, icon, bullets, deliverables, who_for, engagement_types, order_index, created_at) 
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())'
         );
 
         return $stmt->execute([
             $data['title'],
             $data['description'],
+            $data['short_description'] ?? '',
+            $data['slug'] ?? '',
+            $data['icon'] ?? '',
             $data['bullets'] ?? null,
+            $data['deliverables'] ?? '[]',
+            $data['who_for'] ?? '[]',
+            $data['engagement_types'] ?? '[]',
             $data['order_index'] ?? 0,
         ]);
     }
@@ -25,6 +31,14 @@ class Service {
         $db = Database::getConnection();
         $stmt = $db->prepare('SELECT * FROM services WHERE id = ? AND deleted_at IS NULL');
         $stmt->execute([$id]);
+
+        return $stmt->fetch() ?: null;
+    }
+
+    public static function findBySlug(string $slug): ?array {
+        $db = Database::getConnection();
+        $stmt = $db->prepare('SELECT * FROM services WHERE slug = ? AND deleted_at IS NULL');
+        $stmt->execute([$slug]);
 
         return $stmt->fetch() ?: null;
     }
@@ -39,7 +53,7 @@ class Service {
 
     public static function update(int $id, array $data): bool {
         $db = Database::getConnection();
-        $allowedFields = ['title', 'description', 'bullets', 'order_index'];
+        $allowedFields = ['title', 'description', 'short_description', 'slug', 'icon', 'bullets', 'deliverables', 'who_for', 'engagement_types', 'order_index'];
         $updates = [];
         $values = [];
 

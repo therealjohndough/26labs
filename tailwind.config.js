@@ -8,20 +8,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Brand palette
-        black: '#1a1a1a',
-        white: '#f9f9f9',
-        accent: '#d4a574',      // Gold
-        primary: '#2d5016',      // Deep Green
-        dark: '#1a1a1a',
-        light: '#f9f9f9',
-        border: '#e5e5e5',
-        'text-secondary': 'rgba(102, 102, 102, 0.8)',
-        'text-muted': 'rgba(102, 102, 102, 0.6)',
-        'text-subtle': 'rgba(102, 102, 102, 0.4)',
+        // Case Study Labs brand palette
+        black: '#0a0a0a',
+        white: '#f5f2ee',
+        cream: '#ede9e3',
+        accent: '#c8f04a',      // Electric lime
+        mid: '#1a1a1a',
+        dark: '#0a0a0a',
+        light: '#f5f2ee',
+        border: 'rgba(245,242,238,0.12)',
+        'text-primary': '#f5f2ee',
+        'text-secondary': 'rgba(245,242,238,0.55)',
+        'text-muted': 'rgba(245,242,238,0.35)',
+        'text-subtle': 'rgba(245,242,238,0.2)',
       },
       fontFamily: {
-        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        sans: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
         serif: ['Georgia', 'Times New Roman', 'serif']
       },
       fontSize: {

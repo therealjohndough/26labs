@@ -18,11 +18,58 @@ class HomeController {
         $stats = Stat::all();
 
         $this->render('pages/home', [
-            'title' => '26 Labs - Creative Agency',
+            'title' => 'Case Study Labs - Strategic Design & Brand Elevation',
             'caseStudies' => $caseStudies,
             'posts' => $posts,
             'services' => $services,
             'stats' => $stats,
+            'csrf_token' => CSRF::getToken(),
+            'csrf_field' => CSRF::getFieldName(),
+        ]);
+    }
+
+    public function services(): void {
+        $services = Service::all();
+
+        $this->render('pages/services', [
+            'title' => 'Services - Case Study Labs',
+            'services' => $services,
+            'csrf_token' => CSRF::getToken(),
+            'csrf_field' => CSRF::getFieldName(),
+        ]);
+    }
+
+    public function serviceDetail(): void {
+        $slug = $_GET['slug'] ?? '';
+        
+        if (!$slug || !preg_match('/^[a-z0-9-]+$/', $slug)) {
+            http_response_code(404);
+            $this->render('pages/404', ['title' => 'Not Found']);
+            return;
+        }
+
+        $service = Service::findBySlug($slug);
+        
+        if (!$service) {
+            http_response_code(404);
+            $this->render('pages/404', ['title' => 'Not Found']);
+            return;
+        }
+
+        $caseStudies = CaseStudy::latest(3);
+
+        $this->render('pages/service-detail', [
+            'title' => $service['title'] . ' - Case Study Labs',
+            'service' => $service,
+            'case_studies' => $caseStudies,
+            'csrf_token' => CSRF::getToken(),
+            'csrf_field' => CSRF::getFieldName(),
+        ]);
+    }
+
+    public function contact(): void {
+        $this->render('pages/contact', [
+            'title' => 'Get in Touch - Case Study Labs',
             'csrf_token' => CSRF::getToken(),
             'csrf_field' => CSRF::getFieldName(),
         ]);
