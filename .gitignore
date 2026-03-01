@@ -7,7 +7,9 @@
 **/.DS_Store
 *.log
 storage/logs/*
+!storage/logs/.gitkeep
 storage/uploads/*
+!storage/uploads/.gitkeep
 .idea/
 .vscode/
 *.swp
