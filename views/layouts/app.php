@@ -6,9 +6,9 @@
     <title><?php echo $title ?? '26 Labs'; ?> - Creative Agency</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jacquard+24&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/tailwind.css?v=3">
-    <link rel="stylesheet" href="/css/style.css?v=3">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/tailwind.css?v=4">
+    <link rel="stylesheet" href="/css/style.css?v=4">
 </head>
 <body>
     <div id="app">
