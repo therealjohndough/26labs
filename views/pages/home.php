@@ -8,7 +8,7 @@ $case_studies = $case_studies ?? [];
 <!-- Hero Section -->
 <section class="min-h-screen flex flex-col justify-end px-12 py-20 border-b border-border relative overflow-hidden">
   <!-- Background text -->
-  <div class="absolute top-1/2 left-12 -translate-y-1/2 text-8xl md:text-9xl font-serif italic text-white opacity-5 pointer-events-none whitespace-nowrap" style="font-size: clamp(80px, 12vw, 180px);">
+  <div class="absolute top-1/2 left-12 -translate-y-1/2 text-8xl md:text-9xl font-serif text-white opacity-5 pointer-events-none whitespace-nowrap" style="font-size: clamp(80px, 12vw, 180px);">
     Inspire
   </div>
 
@@ -20,7 +20,7 @@ $case_studies = $case_studies ?? [];
     </div>
 
     <!-- Headline -->
-    <h1 class="font-serif text-5xl md:text-7xl italic font-normal leading-tight mb-10 max-w-3xl">
+    <h1 class="font-serif text-5xl md:text-7xl font-normal leading-tight mb-10 max-w-3xl">
       Strategy You Can<br><span class="text-accent">Deploy.</span>
     </h1>
 
@@ -72,19 +72,19 @@ $case_studies = $case_studies ?? [];
 
     <div class="grid grid-cols-4 gap-0 border-b border-border">
       <div class="pb-12 pr-10 border-r border-border">
-        <div class="font-serif text-5xl md:text-6xl italic font-normal text-white mb-3">300<sup class="text-lg align-super">+</sup></div>
+        <div class="font-serif text-5xl md:text-6xl font-normal text-white mb-3">300<sup class="text-lg align-super">+</sup></div>
         <div class="text-sm text-text-secondary/45 leading-relaxed max-w-xs">Cannabis products launched across regulated markets — packaging, positioning, and go-to-market.</div>
       </div>
       <div class="pb-12 pr-10 pl-10 border-r border-border">
-        <div class="font-serif text-5xl md:text-6xl italic font-normal text-white mb-3">100%</div>
+        <div class="font-serif text-5xl md:text-6xl font-normal text-white mb-3">100%</div>
         <div class="text-sm text-text-secondary/45 leading-relaxed max-w-xs">Founder-led projects. No junior handoffs. No account manager telephone game.</div>
       </div>
       <div class="pb-12 pr-10 pl-10 border-r border-border">
-        <div class="font-serif text-5xl md:text-6xl italic font-normal text-white mb-3">0</div>
+        <div class="font-serif text-5xl md:text-6xl font-normal text-white mb-3">0</div>
         <div class="text-sm text-text-secondary/45 leading-relaxed max-w-xs">OCM compliance failures across launched packaging and campaigns.</div>
       </div>
       <div class="pb-12 pl-10">
-        <div class="font-serif text-5xl md:text-6xl italic font-normal text-white mb-3">1,000<sup class="text-lg align-super">+</sup></div>
+        <div class="font-serif text-5xl md:text-6xl font-normal text-white mb-3">1,000<sup class="text-lg align-super">+</sup></div>
         <div class="text-sm text-text-secondary/45 leading-relaxed max-w-xs">Retail touchpoints where our work drives the first impression.</div>
       </div>
     </div>
@@ -100,7 +100,7 @@ $case_studies = $case_studies ?? [];
     </div>
 
     <div class="grid grid-cols-2 gap-24 mb-20">
-      <h2 class="font-serif text-4xl md:text-5xl italic font-normal leading-tight">Crafting premium brands that move culture and convert buyers.</h2>
+      <h2 class="font-serif text-4xl md:text-5xl font-normal leading-tight">Crafting premium brands that move culture and convert buyers.</h2>
       <p class="text-base text-text-secondary leading-relaxed self-end">We don't do theoretical frameworks. Every engagement ends in deployed strategy, real assets, and measurable impact. For cannabis, lifestyle, and the brands that dare to lead.</p>
     </div>
 
@@ -108,7 +108,7 @@ $case_studies = $case_studies ?? [];
       <?php foreach ($services as $i => $service): $num = str_pad($i + 1, 2, '0', STR_PAD_LEFT); ?>
       <a href="/services/<?= htmlspecialchars($service['slug'] ?? '') ?>" class="grid grid-cols-[56px_1fr_200px_80px] gap-8 py-9 border-t border-border hover:bg-white/2 transition">
         <span class="text-xs tracking-widest text-text-secondary/20"><?= $num ?></span>
-        <span class="font-serif text-2xl italic font-normal"><?= htmlspecialchars($service['title']) ?></span>
+        <span class="font-serif text-2xl font-normal"><?= htmlspecialchars($service['title']) ?></span>
         <span class="text-xs text-text-secondary/35 leading-relaxed"><?= htmlspecialchars(substr($service['short_description'] ?? '', 0, 80)) ?> ...</span>
         <span class="text-right text-lg text-text-secondary/20 hover:text-accent transition">↗</span>
       </a>
@@ -128,18 +128,18 @@ $case_studies = $case_studies ?? [];
       <a href="/work" class="text-xs tracking-widest text-text-secondary/50 hover:text-white uppercase border-b border-text-secondary/25 pb-0.5">View All Cases</a>
     </div>
 
-    <h2 class="font-serif text-4xl md:text-5xl italic font-normal leading-tight mb-16 max-w-3xl">We deliver outcomes,<br>not services.</h2>
+    <h2 class="font-serif text-4xl md:text-5xl font-normal leading-tight mb-16 max-w-3xl">We deliver outcomes,<br>not services.</h2>
 
     <div class="grid grid-cols-3 gap-0.5 bg-mid">
       <?php foreach (array_slice($case_studies, 0, 6) as $i => $study): ?>
       <div class="aspect-video bg-mid relative overflow-hidden group cursor-pointer">
         <div class="absolute inset-0 bg-gradient-to-br from-blue-900 to-blue-800 group-hover:scale-105 transition-transform duration-500"></div>
         <div class="absolute bottom-6 left-6 right-6 group-hover:opacity-0 transition-opacity">
-          <div class="font-serif text-lg italic"><?= htmlspecialchars($study['title']) ?></div>
+          <div class="font-serif text-lg"><?= htmlspecialchars($study['title']) ?></div>
         </div>
         <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
           <div class="text-xs tracking-widest text-accent uppercase mb-2">Branding · Web · Strategy</div>
-          <div class="font-serif text-lg italic mb-1"><?= htmlspecialchars($study['title']) ?></div>
+          <div class="font-serif text-lg mb-1"><?= htmlspecialchars($study['title']) ?></div>
           <div class="text-xs text-text-secondary/65"><?= htmlspecialchars(substr($study['description'] ?? '', 0, 100)) ?>...</div>
         </div>
       </div>
@@ -156,22 +156,22 @@ $case_studies = $case_studies ?? [];
       Our Lab Values
     </div>
 
-    <h2 class="font-serif text-4xl md:text-5xl italic font-normal leading-tight max-w-2xl mb-24">Made to Inspire.<br>Built to deploy.</h2>
+    <h2 class="font-serif text-4xl md:text-5xl font-normal leading-tight max-w-2xl mb-24">Made to Inspire.<br>Built to deploy.</h2>
 
     <div class="grid grid-cols-3 gap-0 border-b border-border">
       <div class="pb-12 pr-10 border-r border-border">
         <div class="text-xs tracking-widest text-text-secondary/20 mb-5">01</div>
-        <div class="font-serif text-2xl italic font-normal mb-3">Taste is Strategy</div>
+        <div class="font-serif text-2xl font-normal mb-3">Taste is Strategy</div>
         <div class="text-sm text-text-secondary/45 leading-relaxed">Design isn't decoration — it's direction. How your brand looks tells the market what to think about how you operate.</div>
       </div>
       <div class="pb-12 px-10 border-r border-border">
         <div class="text-xs tracking-widest text-text-secondary/20 mb-5">02</div>
-        <div class="font-serif text-2xl italic font-normal mb-3">Clarity is Currency</div>
+        <div class="font-serif text-2xl font-normal mb-3">Clarity is Currency</div>
         <div class="text-sm text-text-secondary/45 leading-relaxed">Clear brands grow. We remove the noise and sharpen your signal until every asset earns its place.</div>
       </div>
       <div class="pb-12 pl-10">
         <div class="text-xs tracking-widest text-text-secondary/20 mb-5">03</div>
-        <div class="font-serif text-2xl italic font-normal mb-3">Collaboration Over Control</div>
+        <div class="font-serif text-2xl font-normal mb-3">Collaboration Over Control</div>
         <div class="text-sm text-text-secondary/45 leading-relaxed">We co-create, not babysit. The best work happens when founders stay in the room and trust the process.</div>
       </div>
     </div>
@@ -205,13 +205,13 @@ $case_studies = $case_studies ?? [];
 
 <!-- CTA Section -->
 <section class="border-b border-border relative overflow-hidden">
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-9xl italic text-white opacity-5 pointer-events-none whitespace-nowrap" style="font-size: clamp(100px, 18vw, 260px); white-space: nowrap;">Deploy</div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-9xl text-white opacity-5 pointer-events-none whitespace-nowrap" style="font-size: clamp(100px, 18vw, 260px); white-space: nowrap;">Deploy</div>
 
   <div class="relative z-10 px-12 py-32 text-center">
     <div class="text-xs font-bold tracking-wider text-accent uppercase mb-6 flex justify-center items-center gap-2">
       <span class="inline-block w-2 h-2 bg-accent rounded-full animate-pulse"></span>Ready when you are
     </div>
-    <h2 class="font-serif text-5xl md:text-6xl italic font-normal leading-tight max-w-3xl mx-auto mb-10">Let's build something the market won't forget.</h2>
+    <h2 class="font-serif text-5xl md:text-6xl font-normal leading-tight max-w-3xl mx-auto mb-10">Let's build something the market won't forget.</h2>
     <div class="flex gap-5 justify-center">
       <a href="mailto:dough@casestudy-labs.com" class="bg-accent text-black px-8 py-3 font-bold text-xs tracking-widest uppercase hover:opacity-85 transition">Send a Message</a>
       <a href="https://calendar.app.google/wjzdm2J4EUE1oxh36" target="_blank" class="text-text-secondary text-xs tracking-widest uppercase border-b border-text-secondary/25 pb-0.5 hover:text-white hover:border-white transition">Book a Discovery Call ↗</a>
