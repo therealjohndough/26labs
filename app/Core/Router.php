@@ -35,6 +35,13 @@ class Router {
         $method = $_SERVER['REQUEST_METHOD'];
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $basePath = dirname($_SERVER['SCRIPT_NAME']);
+
+        // Normalize hosts that expose index.php in the request path
+        if ($path === '/index.php') {
+            $path = '/';
+        } elseif (str_starts_with($path, '/index.php/')) {
+            $path = substr($path, strlen('/index.php'));
+        }
         
         if ($basePath !== '/' && str_starts_with($path, $basePath)) {
             $path = substr($path, strlen($basePath));
@@ -49,6 +56,7 @@ class Router {
                 continue;
             }
 
+            $params = [];
             if ($this->matchRoute($route['path'], $path, $params)) {
                 // Run middleware
                 foreach ($route['middleware'] as $middleware) {
