@@ -1,0 +1,94 @@
+/* =============================================
+   DESIGN TOKENS – Case Study Labs
+   PHP Site – February 2026
+   Single source of truth
+   ============================================= */
+
+:root {
+  /* ==================== COLORS ==================== */
+  --color-black: #0a0a0a;
+  --color-white: #f5f2ee;
+  --color-cream: #ede9e3;
+  --color-accent: #c8f04a;           /* Electric lime – your signature differentiator */
+  --color-mid: #2a2a2a;
+  --color-surface: #1a1a1a;
+
+  /* Semantic */
+  --color-bg: var(--color-black);
+  --color-text-primary: var(--color-white);
+  --color-text-secondary: rgba(245,242,238,0.55);
+  --color-text-muted: rgba(245,242,238,0.35);
+  --color-text-subtle: rgba(245,242,238,0.25);
+  --color-text-accent: var(--color-accent);
+  --color-border: rgba(245,242,238,0.12);
+  --color-border-strong: rgba(245,242,238,0.25);
+  --color-overlay: rgba(10,10,10,0.92);
+
+  /* ==================== TYPOGRAPHY ==================== */
+  --font-family-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-family-serif: 'Georgia', 'Times New Roman', serif;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* Font sizes (base + clamp for responsive) */
+  --text-xs: 10px;
+  --text-sm: 11px;
+  --text-base: 13px;
+  --text-md: 15px;
+  --text-lg: 16px;
+  --text-xl: 18px;
+  --text-2xl: 24px;
+  --text-3xl: 28px;
+  --text-display: clamp(36px, 4.5vw, 64px);
+  --text-hero: clamp(52px, 8vw, 120px);
+  --text-eyebrow: 11px;
+
+  /* Letter spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.08em;
+  --tracking-wider: 0.15em;
+  --tracking-widest: 0.22em;
+  --tracking-uppercase: 0.1em;
+
+  /* ==================== SPACING ==================== */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 48px;
+  --space-9: 60px;
+  --space-10: 80px;
+  --space-11: 100px;
+  --space-12: 140px;
+
+  /* ==================== LAYOUT ==================== */
+  --container-padding: 48px;
+  --section-padding-y: 100px;
+
+  /* ==================== EFFECTS & MOTION ==================== */
+  --border-radius: 0;                     /* sharp premium look */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.2);
+
+  --transition-fast: all 0.2s ease;
+  --transition-normal: all 0.35s ease;
+  --transition-slow: all 0.6s cubic-bezier(0.23,1,0.32,1);
+
+  /* Z-index */
+  --z-nav: 100;
+  --z-dropdown: 200;
+  --z-modal: 1000;
+
+  /* ==================== BREAKPOINTS (mobile-first) ==================== */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+}

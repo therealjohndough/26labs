@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom component classes */
+@layer components {
+  .container {
+    @apply max-w-[1200px] mx-auto px-lg;
+  }
+
+  /* Button styles */
+  .btn-primary {
+    @apply bg-primary text-white px-lg py-md rounded-[4px] font-[600] cursor-pointer transition-all duration-base hover:bg-opacity-90 hover:translate-y-[-2px];
+  }
+
+  .btn-secondary {
+    @apply bg-light text-dark px-lg py-md rounded-[4px] font-[600] cursor-pointer border border-border transition-all duration-base hover:bg-opacity-90;
+  }
+
+  .btn-small {
+    @apply px-md py-sm text-sm font-[600];
+  }
+
+  .btn-danger {
+    @apply bg-red-600 text-white px-md py-sm rounded cursor-pointer transition-all duration-base hover:bg-red-700;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-white rounded-[8px] shadow-[0_1px_3px_rgba(0,0,0,0.08)] transition-all duration-base hover:shadow-[0_8px_24px_rgba(0,0,0,0.1)];
+  }
+
+  .card-elevated {
+    @apply bg-white rounded-[8px] shadow-[0_2px_8px_rgba(0,0,0,0.08)];
+  }
+
+  /* Form styles */
+  .form-input {
+    @apply w-full px-md py-md border border-border rounded-[4px] font-base transition-all duration-base;
+  }
+
+  .form-input:focus {
+    @apply outline-none border-primary ring-[3px] ring-opacity-10 ring-primary;
+  }
+
+  .form-group {
+    @apply mb-lg;
+  }
+
+  .form-group label {
+    @apply block font-[500] mb-sm text-dark;
+  }
+
+  /* Section styles */
+  .section {
+    @apply py-3xl;
+  }
+
+  .section-alt {
+    @apply py-3xl bg-light;
+  }
+
+  /* Typography */
+  .text-muted {
+    @apply text-text-muted;
+  }
+
+  .text-secondary {
+    @apply text-text-secondary;
+  }
+
+  /* Navigation */
+  .nav-link {
+    @apply text-text-secondary transition-colors duration-base hover:text-primary;
+  }
+
+  /* Badges and tags */
+  .badge {
+    @apply inline-block px-sm py-xs rounded-[3px] text-xs font-[500];
+  }
+
+  .badge-accent {
+    @apply badge bg-accent text-black;
+  }
+
+  .tag {
+    @apply badge bg-light text-primary;
+  }
+}

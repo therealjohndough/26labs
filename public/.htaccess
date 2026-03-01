@@ -1,0 +1,38 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Prevent direct access to protected directories
+    RewriteRule ^(vendor|storage|database|installer|config)/ - [F,L]
+    
+    # Remove index.php from URL
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?/$1 [L]
+    
+    # Security headers (PHP fallback)
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Deny access to sensitive files
+<FilesMatch "\.(env|sql|md|json|yaml|yml|lock)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript
+</IfModule>
+
+# Caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access 1 year"
+    ExpiresByType image/gif "access 1 year"
+    ExpiresByType image/png "access 1 year"
+    ExpiresByType application/javascript "access 1 month"
+    ExpiresByType text/css "access 1 month"
+</IfModule>
