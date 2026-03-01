@@ -1,0 +1,42 @@
+{
+  "name": "26labs PHP & Node Stack",
+  "image": "mcr.microsoft.com/devcontainers/php:1-8.2-alpine",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    },
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "forwardPorts": [8000, 3000],
+  "portsAttributes": {
+    "8000": {
+      "label": "Application",
+      "onAutoForward": "notify"
+    },
+    "3000": {
+      "label": "Development Server",
+      "onAutoForward": "notify"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.vscode-intellicode",
+        "felixbecker.php-intellisense",
+        "bmewburn.vscode-intellicode-web",
+        "dbaeumer.vscode-eslint",
+        "bradlc.vscode-tailwindcss",
+        "ms-vscode.live-server",
+        "ms-python.python"
+      ],
+      "settings": {
+        "php.suggest.basic": false,
+        "[php]": {
+          "editor.defaultFormatter": "felixbecker.php-intellisense"
+        }
+      }
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "remoteUser": "vscode"
+}
