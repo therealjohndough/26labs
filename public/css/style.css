@@ -220,12 +220,39 @@ html { -webkit-text-size-adjust: none; text-size-adjust: none; }
     }
     .stat-card:not(:first-child) { padding-left: 48px; }
     .stat-card:last-child { border-right: none; padding-right: 0; }
-    .stat-number { font-size: 96px; } /* 96 ≈ 10.7× native — accepted desktop exception */
+    .stat-number { font-size: clamp(56px, 5vw, 88px); } /* clamps so 1,000+ fits at any viewport */
     .stats-dots { display: none; }
 }
 
 /* Nav scroll state */
 .nav-scrolled { background: rgba(26,26,26,0.95) !important; }
+
+/* ─── Trust bar marquee ───────────────────────────────────────────────────── */
+.marquee-container {
+    flex: 1;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+.marquee-track {
+    display: flex;
+    gap: 56px;
+    width: max-content;
+    animation: marquee-scroll 28s linear infinite;
+}
+.marquee-item {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: rgba(245,242,238,0.38);
+    font-weight: 600;
+    white-space: nowrap;
+}
+@keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
 
 /* ─── Responsive layout helpers — no Tailwind rebuild required ───────────────
    These replace Tailwind responsive variants (md:*) that aren't in compiled CSS.

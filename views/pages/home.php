@@ -8,6 +8,11 @@ $case_studies = $case_studies ?? [];
 <!-- Hero Section -->
 <section class="hero-section min-h-screen flex flex-col justify-end py-20 border-b border-border relative overflow-hidden">
 
+  <!-- "26" watermark — large pixel numeral, sits behind all content -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none" style="z-index: 0;">
+    <div style="position: absolute; right: -3%; top: 50%; transform: translateY(-50%); font-family: 'lores-9-wide', monospace; font-weight: 400; font-size: clamp(240px, 26vw, 440px); color: rgba(255,255,255,0.022); line-height: 1; user-select: none; white-space: nowrap; letter-spacing: -0.02em;">26</div>
+  </div>
+
   <div class="relative z-10">
     <!-- Eyebrow -->
     <div class="mb-10 flex items-center gap-2" style="font-family: 'lores-9-narrow', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.18em; color: #888888; text-transform: uppercase;">
@@ -44,19 +49,31 @@ $case_studies = $case_studies ?? [];
 
 </section>
 
-<!-- Trust Bar -->
-<div class="px-12 py-8 border-b border-border flex items-center gap-20 overflow-auto">
-  <span class="text-xs tracking-widest text-text-secondary/50 uppercase whitespace-nowrap flex-shrink-0">Trusted By</span>
-  <div class="flex gap-16 flex-nowrap">
-    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">StockX</span>
-    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">High Times</span>
-    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">Real Madrid</span>
-    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">Zoe Wilder</span>
-    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">Buffalo Cannabis Network</span>
-    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">House of Sacci</span>
-    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">Eat Off Art</span>
-    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">Skyworld</span>
-    <span class="text-sm tracking-wider text-text-secondary/45 font-semibold whitespace-nowrap">The Other</span>
+<!-- Trust Bar — pinned label + auto-scrolling marquee -->
+<div class="px-12 py-8 border-b border-border flex items-center gap-12 overflow-hidden">
+  <span style="font-family: 'lores-9-narrow', monospace; font-weight: 700; font-size: 10px; letter-spacing: 0.2em; color: rgba(245,242,238,0.25); text-transform: uppercase; white-space: nowrap; flex-shrink: 0;">Trusted By</span>
+  <div class="marquee-container">
+    <div class="marquee-track">
+      <span class="marquee-item">StockX</span>
+      <span class="marquee-item">High Times</span>
+      <span class="marquee-item">Real Madrid</span>
+      <span class="marquee-item">Zoe Wilder</span>
+      <span class="marquee-item">Buffalo Cannabis Network</span>
+      <span class="marquee-item">House of Sacci</span>
+      <span class="marquee-item">Eat Off Art</span>
+      <span class="marquee-item">Skyworld</span>
+      <span class="marquee-item">The Other</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="marquee-item" aria-hidden="true">StockX</span>
+      <span class="marquee-item" aria-hidden="true">High Times</span>
+      <span class="marquee-item" aria-hidden="true">Real Madrid</span>
+      <span class="marquee-item" aria-hidden="true">Zoe Wilder</span>
+      <span class="marquee-item" aria-hidden="true">Buffalo Cannabis Network</span>
+      <span class="marquee-item" aria-hidden="true">House of Sacci</span>
+      <span class="marquee-item" aria-hidden="true">Eat Off Art</span>
+      <span class="marquee-item" aria-hidden="true">Skyworld</span>
+      <span class="marquee-item" aria-hidden="true">The Other</span>
+    </div>
   </div>
 </div>
 
@@ -102,7 +119,7 @@ $case_studies = $case_studies ?? [];
     </div>
 
     <div class="grid grid-cols-2 gap-24 mb-20">
-      <h2 class="font-serif text-4xl md:text-5xl font-normal leading-tight">Crafting premium brands that move culture and convert buyers.</h2>
+      <h2 style="font-family: 'lores-9-wide-bold-alt-oaklan', monospace; font-weight: 400; font-size: clamp(22px, 3vw, 44px); line-height: 1.25; color: #FFFFFF;">Crafting premium brands that move culture and convert buyers.</h2>
       <p class="text-base text-text-secondary leading-relaxed self-end">We don't do theoretical frameworks. Every engagement ends in deployed strategy, real assets, and measurable impact. For cannabis, lifestyle, and the brands that dare to lead.</p>
     </div>
 
@@ -110,7 +127,7 @@ $case_studies = $case_studies ?? [];
       <?php foreach ($services as $i => $service): $num = str_pad($i + 1, 2, '0', STR_PAD_LEFT); ?>
       <a href="/services/<?= htmlspecialchars($service['slug'] ?? '') ?>" class="grid grid-cols-[56px_1fr_200px_80px] gap-8 py-9 border-t border-border hover:bg-white/2 transition">
         <span class="text-xs tracking-widest text-text-secondary/20"><?= $num ?></span>
-        <span class="font-serif text-2xl font-normal"><?= htmlspecialchars($service['title']) ?></span>
+        <span style="font-family: 'lores-15', monospace; font-weight: 700; font-size: 18px; color: #FFFFFF;"><?= htmlspecialchars($service['title']) ?></span>
         <span class="text-xs text-text-secondary/35 leading-relaxed"><?= htmlspecialchars(substr($service['short_description'] ?? '', 0, 80)) ?> ...</span>
         <span class="text-right text-lg text-text-secondary/20 hover:text-accent transition">↗</span>
       </a>
