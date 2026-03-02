@@ -16,7 +16,7 @@ $case_studies = $case_studies ?? [];
     </div>
 
     <!-- Headline — two lines, staggered in via JS -->
-    <h1 class="mb-10" style="font-family: 'lores-15', monospace; font-weight: 700; font-size: clamp(52px, 7vw, 88px); line-height: 1.05; color: #FFFFFF; margin-bottom: 40px;">
+    <h1 class="mb-10" style="font-family: 'lores-21-serif', monospace; font-weight: 400; font-size: clamp(52px, 7vw, 88px); line-height: 1.05; color: #FFFFFF; margin-bottom: 40px;">
       <span class="hero-line" style="display: block; opacity: 0; transform: translateY(24px);">Strategy you</span>
       <span class="hero-line" style="display: block; opacity: 0; transform: translateY(24px);">can deploy.</span>
     </h1>

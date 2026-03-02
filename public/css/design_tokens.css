@@ -29,7 +29,9 @@
   --font-family-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;   /* Body copy — nothing else */
 
   /* Lo-Res pixel family — loaded via Adobe Fonts / Typekit snz1mha */
-  --font-lores-15: 'lores-15', monospace;                    /* Hero H1, H3 titles, CTA buttons — weight 700 */
+  --font-lores-15: 'lores-15', monospace;                    /* H3 titles, CTA buttons — weight 700 */
+  --font-lores-21-serif: 'lores-21-serif', monospace;        /* Hero H1 — weight 400 */
+  --font-lores-22-serif: 'lores-22-serif', monospace;        /* ONE signature moment per page — weight 700 */
   --font-lores-15-narrow: 'lores-9-narrow', monospace;       /* H2 headlines, ALL CAPS labels — weight 700 */
   --font-lores-9-wide: 'lores-9-wide', monospace;            /* Metric numbers/stats only — weight 400 */
   --font-lores-28: 'lores-28', monospace;                    /* Supporting display moments — weight 400 */
