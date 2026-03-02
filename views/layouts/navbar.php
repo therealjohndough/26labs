@@ -7,8 +7,8 @@ $currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 <nav class="fixed top-0 left-0 right-0 z-50 px-12 py-6 border-b border-border backdrop-blur-xl bg-black/85">
   <div class="flex items-center justify-between">
     <!-- Logo -->
-    <a href="/" class="text-xs font-bold tracking-widest text-white uppercase hover:text-accent transition">
-      Case_Study_Labs
+    <a href="/" style="font-family: 'lores-9-narrow', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #FFFFFF; text-decoration: none;">
+      CASE_STUDY_LABS
     </a>
 
     <!-- Nav Links -->

@@ -7,43 +7,41 @@ $case_studies = $case_studies ?? [];
 
 <!-- Hero Section -->
 <section class="min-h-screen flex flex-col justify-end px-12 py-20 border-b border-border relative overflow-hidden">
-  <!-- Background text -->
-  <div class="absolute top-1/2 left-12 -translate-y-1/2 text-8xl md:text-9xl font-serif text-white opacity-5 pointer-events-none whitespace-nowrap" style="font-size: clamp(80px, 12vw, 180px);">
-    Inspire
-  </div>
 
   <div class="relative z-10">
     <!-- Eyebrow -->
-    <div class="mb-6 text-xs font-bold tracking-wider text-accent uppercase flex items-center gap-2">
-      <span class="inline-block w-2 h-2 bg-accent rounded-full animate-pulse"></span>
-      Buffalo, NY — Est. 2016
+    <div class="mb-10 flex items-center gap-2" style="font-family: 'lores-9-narrow', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.18em; color: #888888; text-transform: uppercase;">
+      <span style="display: inline-block; width: 6px; height: 6px; background: #D9FF5C; border-radius: 50%; flex-shrink: 0;"></span>
+      BUFFALO, NY — EST. 2016
     </div>
 
-    <!-- Headline -->
-    <h1 class="font-serif text-5xl md:text-7xl font-normal leading-tight mb-10 max-w-3xl">
-      Strategy You Can<br><span class="text-accent">Deploy.</span>
+    <!-- Headline — two lines, staggered in via JS -->
+    <h1 class="mb-10" style="font-family: 'lores-15', monospace; font-weight: 700; font-size: clamp(52px, 7vw, 88px); line-height: 1.05; color: #FFFFFF; margin-bottom: 40px;">
+      <span class="hero-line" style="display: block; opacity: 0; transform: translateY(24px);">Strategy you</span>
+      <span class="hero-line" style="display: block; opacity: 0; transform: translateY(24px);">can deploy.</span>
     </h1>
 
     <!-- Subheading -->
-    <p class="text-base text-text-secondary max-w-2xl leading-relaxed mb-12">
+    <p class="mb-12" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.65; color: #E8E8E8; max-width: 480px; margin-bottom: 48px;">
       Founded in 2016 in Buffalo, NY — strategic design and brand elevation for cannabis and lifestyle leaders. We build brands that define categories, command attention, and drive revenue.
     </p>
 
     <!-- CTA Buttons -->
     <div class="flex gap-5 items-center">
-      <a href="/contact" class="bg-accent text-black px-8 py-3 font-bold text-xs tracking-widest uppercase hover:opacity-85 transition">
-        Start a Project
+      <a href="/contact" style="font-family: 'lores-15', monospace; font-weight: 700; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; background: #D9FF5C; color: #1A1A1A; padding: 14px 32px; text-decoration: none; display: inline-block; transition: background 150ms ease-out;">
+        START A PROJECT →
       </a>
       <a href="/services" class="text-text-secondary text-xs tracking-widest uppercase border-b border-text-secondary/25 pb-0.5 hover:text-white hover:border-white transition">
         See Our Work ↗
       </a>
     </div>
-
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-20 right-12 text-xs tracking-wider text-text-secondary/50 uppercase" style="writing-mode: vertical-rl; transform: rotate(180deg);">
-      Scroll to explore
-    </div>
   </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-20 right-12" style="writing-mode: vertical-rl; transform: rotate(180deg); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 10px; letter-spacing: 0.14em; color: #888888; text-transform: uppercase;">
+    Scroll
+  </div>
+
 </section>
 
 <!-- Trust Bar -->
@@ -62,31 +60,51 @@ $case_studies = $case_studies ?? [];
   </div>
 </div>
 
-<!-- Stats Section -->
-<section class="border-b border-border">
-  <div class="px-12 py-24">
-    <div class="text-xs tracking-widest text-text-secondary/50 uppercase mb-16 flex items-center gap-4">
-      <span class="inline-block w-2 h-2 bg-accent rounded-full"></span>
-      Serious Facts
-    </div>
+<!-- Stats Section — Direction 01 scoreboard -->
+<section style="border-top: 1px solid rgba(245,242,238,0.08); border-bottom: 1px solid rgba(245,242,238,0.08);">
+  <div class="px-12" style="padding-top: 80px; padding-bottom: 80px;">
+    <div class="grid grid-cols-4" style="gap: 0;">
 
-    <div class="grid grid-cols-4 gap-0 border-b border-border">
-      <div class="pb-12 pr-10 border-r border-border">
-        <div class="font-serif text-5xl md:text-6xl font-normal text-white mb-3">300<sup class="text-lg align-super">+</sup></div>
-        <div class="text-sm text-text-secondary/45 leading-relaxed max-w-xs">Cannabis products launched across regulated markets — packaging, positioning, and go-to-market.</div>
+      <div style="padding-right: 48px; border-right: 1px solid rgba(245,242,238,0.08);">
+        <div class="stat-number" data-target="300" data-suffix="+"
+          style="font-family: 'lores-9-wide', monospace; font-weight: 400; font-size: 96px; line-height: 1; color: #D9FF5C; margin-bottom: 16px;">
+          300+
+        </div>
+        <div style="font-family: 'lores-9-narrow', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.16em; color: #888888; text-transform: uppercase; line-height: 1.5;">
+          PRODUCTS<br>LAUNCHED
+        </div>
       </div>
-      <div class="pb-12 pr-10 pl-10 border-r border-border">
-        <div class="font-serif text-5xl md:text-6xl font-normal text-white mb-3">100%</div>
-        <div class="text-sm text-text-secondary/45 leading-relaxed max-w-xs">Founder-led projects. No junior handoffs. No account manager telephone game.</div>
+
+      <div style="padding-left: 48px; padding-right: 48px; border-right: 1px solid rgba(245,242,238,0.08);">
+        <div class="stat-number" data-target="100" data-suffix="%"
+          style="font-family: 'lores-9-wide', monospace; font-weight: 400; font-size: 96px; line-height: 1; color: #D9FF5C; margin-bottom: 16px;">
+          100%
+        </div>
+        <div style="font-family: 'lores-9-narrow', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.16em; color: #888888; text-transform: uppercase; line-height: 1.5;">
+          FOUNDER-LED<br>PROJECTS
+        </div>
       </div>
-      <div class="pb-12 pr-10 pl-10 border-r border-border">
-        <div class="font-serif text-5xl md:text-6xl font-normal text-white mb-3">0</div>
-        <div class="text-sm text-text-secondary/45 leading-relaxed max-w-xs">OCM compliance failures across launched packaging and campaigns.</div>
+
+      <div style="padding-left: 48px; padding-right: 48px; border-right: 1px solid rgba(245,242,238,0.08);">
+        <div class="stat-number" data-target="0" data-suffix=""
+          style="font-family: 'lores-9-wide', monospace; font-weight: 400; font-size: 96px; line-height: 1; color: #D9FF5C; margin-bottom: 16px;">
+          0
+        </div>
+        <div style="font-family: 'lores-9-narrow', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.16em; color: #888888; text-transform: uppercase; line-height: 1.5;">
+          OCM<br>FAILURES
+        </div>
       </div>
-      <div class="pb-12 pl-10">
-        <div class="font-serif text-5xl md:text-6xl font-normal text-white mb-3">1,000<sup class="text-lg align-super">+</sup></div>
-        <div class="text-sm text-text-secondary/45 leading-relaxed max-w-xs">Retail touchpoints where our work drives the first impression.</div>
+
+      <div style="padding-left: 48px;">
+        <div class="stat-number" data-target="1000" data-suffix="+"
+          style="font-family: 'lores-9-wide', monospace; font-weight: 400; font-size: 96px; line-height: 1; color: #D9FF5C; margin-bottom: 16px;">
+          1,000+
+        </div>
+        <div style="font-family: 'lores-9-narrow', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.16em; color: #888888; text-transform: uppercase; line-height: 1.5;">
+          RETAIL<br>TOUCHPOINTS
+        </div>
       </div>
+
     </div>
   </div>
 </section>

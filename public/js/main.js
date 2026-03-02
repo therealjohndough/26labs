@@ -2,6 +2,104 @@
  * Main JavaScript - Client-side functionality
  */
 
+// ─── Hero headline stagger ───────────────────────────────────────────────────
+// Fires 300ms after load. Each line staggers 80ms apart.
+// Respects prefers-reduced-motion.
+(function () {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function revealHeroLines() {
+        const lines = document.querySelectorAll('.hero-line');
+        if (!lines.length) return;
+
+        if (prefersReduced) {
+            lines.forEach(line => {
+                line.style.opacity = '1';
+                line.style.transform = 'translateY(0)';
+            });
+            return;
+        }
+
+        lines.forEach((line, i) => {
+            setTimeout(() => {
+                line.style.transition = 'opacity 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1)';
+                line.style.opacity = '1';
+                line.style.transform = 'translateY(0)';
+            }, i * 80);
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => setTimeout(revealHeroLines, 300));
+    } else {
+        setTimeout(revealHeroLines, 300);
+    }
+})();
+
+// ─── Stat count-up ───────────────────────────────────────────────────────────
+// IntersectionObserver at threshold 0.3. 1500ms ease-out cubic.
+// Numbers ≥ 1000 formatted with comma. Suffix appended after count completes.
+(function () {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function formatNumber(n) {
+        return n >= 1000 ? n.toLocaleString('en-US') : String(n);
+    }
+
+    function animateCountUp(el) {
+        const target = parseInt(el.dataset.target, 10);
+        const suffix = el.dataset.suffix || '';
+
+        if (prefersReduced || target === 0) {
+            el.textContent = formatNumber(target) + suffix;
+            return;
+        }
+
+        const duration = 1500;
+        const start = performance.now();
+
+        function tick(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            // Cubic ease-out — decelerates near the end
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = Math.round(eased * target);
+
+            el.textContent = formatNumber(current) + (progress >= 1 ? suffix : '');
+
+            if (progress < 1) {
+                requestAnimationFrame(tick);
+            }
+        }
+
+        // Reset to 0 before counting
+        el.textContent = '0';
+        requestAnimationFrame(tick);
+    }
+
+    function initCountUp() {
+        const statEls = document.querySelectorAll('.stat-number');
+        if (!statEls.length) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCountUp(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        statEls.forEach(el => observer.observe(el));
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCountUp);
+    } else {
+        initCountUp();
+    }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
     // Smooth scroll functionality
     document.querySelectorAll('[data-scroll-to]').forEach(element => {
