@@ -34,10 +34,10 @@ $case_studies = $case_studies ?? [];
     <!-- CTA Buttons — .cta-group: stacked mobile, row desktop (style.css) -->
     <div class="cta-group">
       <a href="/contact" class="hero-cta-primary">
-        START A PROJECT →
+        START A PROJECT <i class="hn hn-arrow-right" style="margin-left: 6px;"></i>
       </a>
-      <a href="/services" class="text-text-secondary text-xs tracking-widest uppercase border-b border-text-secondary/25 pb-0.5 hover:text-white hover:border-white transition">
-        See Our Work ↗
+      <a href="/services" class="text-text-secondary text-xs tracking-widest uppercase border-b border-text-secondary/25 pb-0.5 hover:text-white hover:border-white transition" style="display: inline-flex; align-items: center; gap: 6px;">
+        See Our Work <i class="hn hn-external-link" style="font-size: 12px;"></i>
       </a>
     </div>
   </div>
@@ -129,7 +129,7 @@ $case_studies = $case_studies ?? [];
         <span class="service-num" style="font-family: 'lores-9-narrow', monospace; font-weight: 700; font-size: 10px; letter-spacing: 0.16em; color: rgba(245,242,238,0.2);"><?= $num ?></span>
         <span style="font-family: 'lores-15', monospace; font-weight: 700; font-size: 18px; color: #FFFFFF;"><?= htmlspecialchars($service['title']) ?></span>
         <span class="service-desc text-xs text-text-secondary/35 leading-relaxed"><?= htmlspecialchars(substr($service['short_description'] ?? '', 0, 80)) ?> ...</span>
-        <span class="text-right text-lg text-text-secondary/20 hover:text-accent transition">↗</span>
+        <span class="text-right text-text-secondary/20 hover:text-accent transition" style="font-size: 16px; line-height: 1;"><i class="hn hn-arrow-right"></i></span>
       </a>
       <?php endforeach; ?>
     </div>
@@ -232,8 +232,8 @@ $case_studies = $case_studies ?? [];
     </div>
     <h2 style="font-family: 'lores-22-serif', monospace; font-weight: 700; font-size: clamp(28px, 4vw, 56px); line-height: 1.15; color: #FFFFFF; max-width: 36rem; margin: 0 auto 40px;">Let's build something the market won't forget.</h2>
     <div class="cta-section-btns flex gap-5 justify-center">
-      <a href="mailto:dough@casestudy-labs.com" class="bg-accent text-black px-8 py-3 font-bold text-xs tracking-widest uppercase hover:opacity-85 transition">Send a Message</a>
-      <a href="https://calendar.app.google/wjzdm2J4EUE1oxh36" target="_blank" class="text-text-secondary text-xs tracking-widest uppercase border-b border-text-secondary/25 pb-0.5 hover:text-white hover:border-white transition">Book a Discovery Call ↗</a>
+      <a href="mailto:dough@casestudy-labs.com" class="bg-accent text-black px-8 py-3 font-bold text-xs tracking-widest uppercase hover:opacity-85 transition" style="display: inline-flex; align-items: center; gap: 8px;"><i class="hn hn-envelope" style="font-size: 14px;"></i> Send a Message</a>
+      <a href="https://calendar.app.google/wjzdm2J4EUE1oxh36" target="_blank" class="text-text-secondary text-xs tracking-widest uppercase border-b border-text-secondary/25 pb-0.5 hover:text-white hover:border-white transition" style="display: inline-flex; align-items: center; gap: 7px;"><i class="hn hn-calender" style="font-size: 13px;"></i> Book a Discovery Call</a>
     </div>
   </div>
 </section>

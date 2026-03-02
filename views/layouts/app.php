@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/design_tokens.css?v=6">
     <link rel="stylesheet" href="/css/tailwind.css?v=6">
     <link rel="stylesheet" href="/css/style.css?v=6">
+    <link rel="stylesheet" href="https://unpkg.com/@hackernoon/pixel-icon-library@latest/fonts/iconfont.css">
 </head>
 <body>
     <div id="app">

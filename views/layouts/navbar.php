@@ -20,8 +20,8 @@ $currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     </ul>
 
     <!-- CTA — always visible (logo + CTA on mobile) -->
-    <a href="https://calendar.app.google/wjzdm2J4EUE1oxh36" target="_blank" style="font-family: 'lores-15', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: #D9FF5C; color: #1A1A1A; padding: 10px 20px; text-decoration: none; transition: background 150ms ease-out;">
-      Schedule
+    <a href="https://calendar.app.google/wjzdm2J4EUE1oxh36" target="_blank" style="font-family: 'lores-15', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: #D9FF5C; color: #1A1A1A; padding: 10px 20px; text-decoration: none; transition: background 150ms ease-out; display: inline-flex; align-items: center; gap: 7px;">
+      <i class="hn hn-calender" style="font-size: 13px;"></i> Schedule
     </a>
   </div>
 </nav>
