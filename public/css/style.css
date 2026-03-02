@@ -227,6 +227,26 @@ html { -webkit-text-size-adjust: none; text-size-adjust: none; }
 /* Nav scroll state */
 .nav-scrolled { background: rgba(26,26,26,0.95) !important; }
 
+/* ─── Responsive layout helpers — no Tailwind rebuild required ───────────────
+   These replace Tailwind responsive variants (md:*) that aren't in compiled CSS.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* Nav links: visible on desktop, hidden on mobile */
+.nav-links { display: flex; gap: 40px; list-style: none; }
+@media (max-width: 767px) { .nav-links { display: none; } }
+
+/* Hero section horizontal padding: tight on mobile, 48px on desktop */
+.hero-section { padding-left: 20px; padding-right: 20px; }
+@media (min-width: 768px) { .hero-section { padding-left: 48px; padding-right: 48px; } }
+
+/* CTA button group: stacked on mobile, row on desktop */
+.cta-group { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+@media (min-width: 768px) { .cta-group { flex-direction: row; align-items: center; gap: 20px; } }
+
+/* Desktop-only element (scroll indicator etc.) */
+.desktop-only { display: none; }
+@media (min-width: 768px) { .desktop-only { display: block; } }
+
 @media (prefers-reduced-motion: reduce) {
     .stat-card, .stats-dot { transition: none; }
 }

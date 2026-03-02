@@ -4,15 +4,15 @@
 $currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 ?>
 
-<nav class="fixed top-0 left-0 right-0 z-50 px-5 md:px-12 py-3 md:py-6 border-b border-border backdrop-blur-xl bg-black/85 transition-colors duration-300" id="site-nav">
+<nav class="fixed top-0 left-0 right-0 z-50 px-12 py-6 border-b border-border backdrop-blur-xl bg-black/85" id="site-nav">
   <div class="flex items-center justify-between">
     <!-- Logo -->
     <a href="/" style="font-family: 'lores-9-narrow', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #FFFFFF; text-decoration: none;">
       CASE_STUDY_LABS
     </a>
 
-    <!-- Nav Links — hidden on mobile, flex on md+ -->
-    <ul class="hidden md:flex gap-10 list-none">
+    <!-- Nav Links — .nav-links: flex on desktop, hidden on mobile (style.css) -->
+    <ul class="nav-links">
       <li><a href="/" class="text-xs tracking-widest text-text-secondary/45 hover:text-white uppercase transition <?= $currentPath === '/' ? 'text-white' : '' ?>">Home</a></li>
       <li><a href="/services" class="text-xs tracking-widest text-text-secondary/45 hover:text-white uppercase transition <?= strpos($currentPath, '/services') === 0 ? 'text-white' : '' ?>">Services</a></li>
       <li><a href="/contact" class="text-xs tracking-widest text-text-secondary/45 hover:text-white uppercase transition <?= $currentPath === '/contact' ? 'text-white' : '' ?>">Contact</a></li>

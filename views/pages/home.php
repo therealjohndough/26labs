@@ -6,7 +6,7 @@ $case_studies = $case_studies ?? [];
 ?>
 
 <!-- Hero Section -->
-<section class="min-h-screen flex flex-col justify-end px-5 md:px-12 py-20 border-b border-border relative overflow-hidden">
+<section class="hero-section min-h-screen flex flex-col justify-end py-20 border-b border-border relative overflow-hidden">
 
   <div class="relative z-10">
     <!-- Eyebrow -->
@@ -26,8 +26,8 @@ $case_studies = $case_studies ?? [];
       Founded in 2016 in Buffalo, NY — strategic design and brand elevation for cannabis and lifestyle leaders. We build brands that define categories, command attention, and drive revenue.
     </p>
 
-    <!-- CTA Buttons — stacked on mobile, row on desktop -->
-    <div class="flex flex-col md:flex-row gap-4 md:gap-5 items-start md:items-center">
+    <!-- CTA Buttons — .cta-group: stacked mobile, row desktop (style.css) -->
+    <div class="cta-group">
       <a href="/contact" class="hero-cta-primary">
         START A PROJECT →
       </a>
@@ -37,8 +37,8 @@ $case_studies = $case_studies ?? [];
     </div>
   </div>
 
-  <!-- Scroll indicator — desktop only -->
-  <div class="hidden md:block absolute bottom-20 right-12" style="writing-mode: vertical-rl; transform: rotate(180deg); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 10px; letter-spacing: 0.14em; color: #888888; text-transform: uppercase;">
+  <!-- Scroll indicator — .desktop-only: hidden mobile, block desktop (style.css) -->
+  <div class="desktop-only absolute bottom-20 right-12" style="writing-mode: vertical-rl; transform: rotate(180deg); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 10px; letter-spacing: 0.14em; color: #888888; text-transform: uppercase;">
     Scroll
   </div>
 
