@@ -16,7 +16,7 @@ $case_studies = $case_studies ?? [];
   <div class="relative z-10">
     <!-- Eyebrow -->
     <div class="mb-10 flex items-center gap-2" style="font-family: 'lores-9-narrow', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.18em; color: #888888; text-transform: uppercase;">
-      <span style="display: inline-block; width: 6px; height: 6px; background: #D9FF5C; border-radius: 50%; flex-shrink: 0;"></span>
+      <i class="hn hn-sparkles" style="font-size: 11px; color: #D9FF5C; line-height: 1;"></i>
       BUFFALO, NY — EST. 2016
     </div>
 
@@ -113,8 +113,8 @@ $case_studies = $case_studies ?? [];
 <!-- Services Section -->
 <section class="border-b border-border" id="services">
   <div class="px-12 py-24">
-    <div class="text-xs tracking-widest text-text-secondary/50 uppercase mb-16">
-      <span class="inline-block w-2 h-2 bg-accent rounded-full align-middle mr-2"></span>
+    <div class="text-xs tracking-widest text-text-secondary/50 uppercase mb-16" style="display: inline-flex; align-items: center; gap: 8px;">
+      <i class="hn hn-bolt" style="font-size: 11px; color: #D9FF5C; line-height: 1;"></i>
       What We Do
     </div>
 
@@ -140,11 +140,11 @@ $case_studies = $case_studies ?? [];
 <section class="border-b border-border" id="work">
   <div class="px-12 py-24">
     <div class="flex justify-between items-end mb-16">
-      <div class="text-xs tracking-widest text-text-secondary/50 uppercase">
-        <span class="inline-block w-2 h-2 bg-accent rounded-full align-middle mr-2"></span>
+      <div class="text-xs tracking-widest text-text-secondary/50 uppercase" style="display: inline-flex; align-items: center; gap: 8px;">
+        <i class="hn hn-sparkles" style="font-size: 11px; color: #D9FF5C; line-height: 1;"></i>
         Selected Work
       </div>
-      <a href="/work" class="text-xs tracking-widest text-text-secondary/50 hover:text-white uppercase border-b border-text-secondary/25 pb-0.5">View All Cases</a>
+      <a href="/work" class="text-xs tracking-widest text-text-secondary/50 hover:text-white uppercase border-b border-text-secondary/25 pb-0.5" style="display: inline-flex; align-items: center; gap: 6px;">View All Cases <i class="hn hn-external-link" style="font-size: 11px;"></i></a>
     </div>
 
     <h2 style="font-family: 'lores-9-wide-bold-alt-oaklan', monospace; font-weight: 400; font-size: clamp(22px, 3vw, 44px); line-height: 1.25; color: #FFFFFF; margin-bottom: 64px; max-width: 48rem;">We deliver outcomes,<br>not services.</h2>
@@ -170,8 +170,8 @@ $case_studies = $case_studies ?? [];
 <!-- Values Section -->
 <section class="border-b border-border" id="studio">
   <div class="px-12 py-24">
-    <div class="text-xs tracking-widest text-text-secondary/50 uppercase mb-16">
-      <span class="inline-block w-2 h-2 bg-accent rounded-full align-middle mr-2"></span>
+    <div class="text-xs tracking-widest text-text-secondary/50 uppercase mb-16" style="display: inline-flex; align-items: center; gap: 8px;">
+      <i class="hn hn-check-circle" style="font-size: 11px; color: #D9FF5C; line-height: 1;"></i>
       Our Lab Values
     </div>
 
@@ -201,17 +201,17 @@ $case_studies = $case_studies ?? [];
 <section class="border-b border-border">
   <div class="grid grid-cols-2 gap-0.5">
     <div class="fit-panel px-12 py-24 bg-white/3">
-      <div class="text-xs tracking-widest text-accent uppercase mb-10">A Good Fit</div>
+      <div class="text-xs tracking-widest text-accent uppercase mb-10" style="display: inline-flex; align-items: center; gap: 8px;"><i class="hn hn-check-circle" style="font-size: 11px; line-height: 1;"></i>A Good Fit</div>
       <div class="space-y-5">
-        <div class="pb-5 border-b border-border text-base text-text-secondary/70">You see design as a business multiplier</div>
-        <div class="pb-5 border-b border-border text-base text-text-secondary/70">You value speed, taste, and strategy</div>
-        <div class="pb-5 border-b border-border text-base text-text-secondary/70">You want to build legacy — not chase hype</div>
-        <div class="text-base text-text-secondary/70">You're in cannabis, lifestyle, or an emerging space</div>
+        <div class="pb-5 border-b border-border text-base text-text-secondary/70" style="display: flex; align-items: flex-start; gap: 10px;"><i class="hn hn-check" style="font-size: 12px; color: #D9FF5C; line-height: 1.4; flex-shrink: 0;"></i><span>You see design as a business multiplier</span></div>
+        <div class="pb-5 border-b border-border text-base text-text-secondary/70" style="display: flex; align-items: flex-start; gap: 10px;"><i class="hn hn-check" style="font-size: 12px; color: #D9FF5C; line-height: 1.4; flex-shrink: 0;"></i><span>You value speed, taste, and strategy</span></div>
+        <div class="pb-5 border-b border-border text-base text-text-secondary/70" style="display: flex; align-items: flex-start; gap: 10px;"><i class="hn hn-check" style="font-size: 12px; color: #D9FF5C; line-height: 1.4; flex-shrink: 0;"></i><span>You want to build legacy — not chase hype</span></div>
+        <div class="text-base text-text-secondary/70" style="display: flex; align-items: flex-start; gap: 10px;"><i class="hn hn-check" style="font-size: 12px; color: #D9FF5C; line-height: 1.4; flex-shrink: 0;"></i><span>You're in cannabis, lifestyle, or an emerging space</span></div>
       </div>
     </div>
 
     <div class="fit-panel px-12 py-24 bg-white/1">
-      <div class="text-xs tracking-widest text-text-secondary/30 uppercase mb-10">Not a Good Fit</div>
+      <div class="text-xs tracking-widest text-text-secondary/30 uppercase mb-10" style="display: inline-flex; align-items: center; gap: 8px;"><i class="hn hn-bolt" style="font-size: 11px; line-height: 1;"></i>Not a Good Fit</div>
       <div class="space-y-5">
         <div class="pb-5 border-b border-border text-base text-text-secondary/70">Micromanagers and design-by-committee</div>
         <div class="pb-5 border-b border-border text-base text-text-secondary/70">"Just need a quick logo" shoppers</div>
@@ -228,7 +228,7 @@ $case_studies = $case_studies ?? [];
 
   <div class="relative z-10 px-12 py-32 text-center">
     <div class="text-xs font-bold tracking-wider text-accent uppercase mb-6 flex justify-center items-center gap-2">
-      <span class="inline-block w-2 h-2 bg-accent rounded-full animate-pulse"></span>Ready when you are
+      <i class="hn hn-bolt" style="font-size: 11px; line-height: 1;"></i>Ready when you are
     </div>
     <h2 style="font-family: 'lores-22-serif', monospace; font-weight: 700; font-size: clamp(28px, 4vw, 56px); line-height: 1.15; color: #FFFFFF; max-width: 36rem; margin: 0 auto 40px;">Let's build something the market won't forget.</h2>
     <div class="cta-section-btns flex gap-5 justify-center">
