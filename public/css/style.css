@@ -49,6 +49,12 @@ img {
     max-width: 100%;
 }
 
+/* Section headings — hero font system-wide */
+h2, h3 {
+    font-family: 'lores-21-serif', monospace !important;
+    font-weight: 400 !important;
+}
+
 /* Form base — Tailwind utilities handle the rest */
 input, textarea, select, button {
     font-family: inherit;
