@@ -48,7 +48,7 @@
 
   <!-- Footer Bottom -->
   <div class="px-12 py-6 border-t border-border flex justify-between text-xs text-text-secondary/20">
-    <span>© 2026 Case Study Labs. Buffalo, NY.</span>
+    <span>© 2026 Case Study Labs. Buffalo, NY &amp; NYC.</span>
     <div class="flex gap-6">
       <a href="#" class="hover:text-white transition">Privacy</a>
       <a href="#" class="hover:text-white transition">Imprint</a>
