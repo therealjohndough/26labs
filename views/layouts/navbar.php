@@ -19,10 +19,25 @@ $currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
       <li><a href="/admin/login" class="text-xs tracking-widest text-text-secondary/45 hover:text-white uppercase transition">Admin</a></li>
     </ul>
 
-    <!-- CTA — always visible (logo + CTA on mobile) -->
-    <a href="https://calendar.app.google/wjzdm2J4EUE1oxh36" target="_blank" style="font-family: 'lores-15', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: #D9FF5C; color: #1A1A1A; padding: 10px 20px; text-decoration: none; transition: background 150ms ease-out; display: inline-flex; align-items: center; gap: 7px;">
+    <!-- Desktop CTA -->
+    <a href="https://calendar.app.google/wjzdm2J4EUE1oxh36" target="_blank" class="nav-cta-desktop" style="font-family: 'lores-15', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; background: #D9FF5C; color: #1A1A1A; padding: 10px 20px; text-decoration: none; transition: background 150ms ease-out; display: inline-flex; align-items: center; gap: 7px;">
       <i class="hn hn-calender" style="font-size: 13px;"></i> Schedule
+    </a>
+
+    <!-- Mobile Menu Toggle -->
+    <button type="button" class="mobile-menu-toggle" id="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-menu-panel">
+      <span>Menu</span>
+      <i class="hn hn-angle-right" style="font-size: 12px; line-height: 1;"></i>
+    </button>
+  </div>
+
+  <div class="mobile-menu-panel" id="mobile-menu-panel">
+    <a href="/" class="mobile-menu-link <?= $currentPath === '/' ? 'is-active' : '' ?>">Home</a>
+    <a href="/services" class="mobile-menu-link <?= strpos($currentPath, '/services') === 0 ? 'is-active' : '' ?>">Services</a>
+    <a href="/contact" class="mobile-menu-link <?= $currentPath === '/contact' ? 'is-active' : '' ?>">Contact</a>
+    <a href="/admin/login" class="mobile-menu-link">Admin</a>
+    <a href="https://calendar.app.google/wjzdm2J4EUE1oxh36" target="_blank" class="mobile-menu-cta">
+      <i class="hn hn-calender" style="font-size: 13px;"></i> Schedule a Call
     </a>
   </div>
 </nav>
-

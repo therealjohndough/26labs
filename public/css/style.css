@@ -268,7 +268,78 @@ html { -webkit-text-size-adjust: none; text-size-adjust: none; }
 
 /* Nav links: visible on desktop, hidden on mobile */
 .nav-links { display: flex; gap: 40px; list-style: none; }
-@media (max-width: 767px) { .nav-links { display: none; } }
+.nav-cta-desktop { display: inline-flex; }
+.mobile-menu-toggle,
+.mobile-menu-panel { display: none; }
+
+@media (max-width: 767px) {
+    #site-nav {
+        padding: 14px 20px !important;
+    }
+
+    .nav-links,
+    .nav-cta-desktop { display: none; }
+
+    .mobile-menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid rgba(245,242,238,0.12);
+        background: rgba(255,255,255,0.02);
+        color: #FFFFFF;
+        height: 40px;
+        padding: 0 14px;
+        font-family: 'lores-15', monospace;
+        font-weight: 700;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
+
+    .mobile-menu-panel {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 12px 20px 20px;
+        border-bottom: 1px solid rgba(245,242,238,0.08);
+        background: rgba(26,26,26,0.96);
+        backdrop-filter: blur(16px);
+    }
+
+    .mobile-menu-panel.is-open { display: block; }
+
+    .mobile-menu-link {
+        display: block;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(245,242,238,0.08);
+        font-family: 'lores-9-narrow', monospace;
+        font-weight: 700;
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(245,242,238,0.68);
+    }
+
+    .mobile-menu-link.is-active { color: #FFFFFF; }
+
+    .mobile-menu-cta {
+        margin-top: 16px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        justify-content: center;
+        height: 48px;
+        background: #D9FF5C;
+        color: #1A1A1A;
+        font-family: 'lores-15', monospace;
+        font-weight: 700;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
+}
 
 /* Hero section horizontal padding: tight on mobile, 48px on desktop */
 .hero-section { padding-left: 20px; padding-right: 20px; }

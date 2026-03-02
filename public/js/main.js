@@ -109,6 +109,61 @@
     }, { passive: true });
 })();
 
+// ─── Mobile menu toggle ───────────────────────────────────────────────────────
+(function () {
+    const toggle = document.getElementById('mobile-menu-toggle');
+    const panel = document.getElementById('mobile-menu-panel');
+    if (!toggle || !panel) return;
+
+    const icon = toggle.querySelector('i');
+
+    function closeMenu() {
+        panel.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        if (icon) {
+            icon.className = 'hn hn-angle-right';
+        }
+    }
+
+    function openMenu() {
+        panel.classList.add('is-open');
+        toggle.setAttribute('aria-expanded', 'true');
+        if (icon) {
+            icon.className = 'hn hn-angle-down';
+        }
+    }
+
+    toggle.addEventListener('click', () => {
+        if (panel.classList.contains('is-open')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+
+    panel.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!panel.classList.contains('is-open')) return;
+        if (toggle.contains(event.target) || panel.contains(event.target)) return;
+        closeMenu();
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) {
+            closeMenu();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeMenu();
+        }
+    });
+})();
+
 // ─── Stats scroll — lift, dots, drag-to-scroll ───────────────────────────────
 // Mobile: proximity lift on active card, dot indicator, mouse drag-to-scroll.
 // Desktop: CSS grid takes over at 1024px, JS effects are benign (no-op layout).

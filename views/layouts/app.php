@@ -6,9 +6,9 @@
     <title><?php echo $title ?? '26 Labs'; ?> - Creative Agency</title>
     <link rel="preconnect" href="https://use.typekit.net" crossorigin>
     <link rel="stylesheet" href="https://use.typekit.net/snz1mha.css">
-    <link rel="stylesheet" href="/css/design_tokens.css?v=7">
-    <link rel="stylesheet" href="/css/tailwind.css?v=7">
-    <link rel="stylesheet" href="/css/style.css?v=7">
+    <link rel="stylesheet" href="/css/design_tokens.css?v=8">
+    <link rel="stylesheet" href="/css/tailwind.css?v=8">
+    <link rel="stylesheet" href="/css/style.css?v=8">
     <link rel="stylesheet" href="https://unpkg.com/@hackernoon/pixel-icon-library@latest/fonts/iconfont.css">
 </head>
 <body>
