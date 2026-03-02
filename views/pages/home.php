@@ -125,10 +125,10 @@ $case_studies = $case_studies ?? [];
 
     <div class="space-y-0">
       <?php foreach ($services as $i => $service): $num = str_pad($i + 1, 2, '0', STR_PAD_LEFT); ?>
-      <a href="/services/<?= htmlspecialchars($service['slug'] ?? '') ?>" class="grid grid-cols-[56px_1fr_200px_80px] gap-8 py-9 border-t border-border hover:bg-white/2 transition">
-        <span class="text-xs tracking-widest text-text-secondary/20"><?= $num ?></span>
+      <a href="/services/<?= htmlspecialchars($service['slug'] ?? '') ?>" class="service-row grid grid-cols-[56px_1fr_200px_80px] gap-8 py-9 border-t border-border hover:bg-white/2 transition">
+        <span class="service-num" style="font-family: 'lores-9-narrow', monospace; font-weight: 700; font-size: 10px; letter-spacing: 0.16em; color: rgba(245,242,238,0.2);"><?= $num ?></span>
         <span style="font-family: 'lores-15', monospace; font-weight: 700; font-size: 18px; color: #FFFFFF;"><?= htmlspecialchars($service['title']) ?></span>
-        <span class="text-xs text-text-secondary/35 leading-relaxed"><?= htmlspecialchars(substr($service['short_description'] ?? '', 0, 80)) ?> ...</span>
+        <span class="service-desc text-xs text-text-secondary/35 leading-relaxed"><?= htmlspecialchars(substr($service['short_description'] ?? '', 0, 80)) ?> ...</span>
         <span class="text-right text-lg text-text-secondary/20 hover:text-accent transition">↗</span>
       </a>
       <?php endforeach; ?>
@@ -147,7 +147,7 @@ $case_studies = $case_studies ?? [];
       <a href="/work" class="text-xs tracking-widest text-text-secondary/50 hover:text-white uppercase border-b border-text-secondary/25 pb-0.5">View All Cases</a>
     </div>
 
-    <h2 class="font-serif text-4xl md:text-5xl font-normal leading-tight mb-16 max-w-3xl">We deliver outcomes,<br>not services.</h2>
+    <h2 style="font-family: 'lores-9-wide-bold-alt-oaklan', monospace; font-weight: 400; font-size: clamp(22px, 3vw, 44px); line-height: 1.25; color: #FFFFFF; margin-bottom: 64px; max-width: 48rem;">We deliver outcomes,<br>not services.</h2>
 
     <div class="grid grid-cols-3 gap-0.5 bg-mid">
       <?php foreach (array_slice($case_studies, 0, 6) as $i => $study): ?>
@@ -175,22 +175,22 @@ $case_studies = $case_studies ?? [];
       Our Lab Values
     </div>
 
-    <h2 class="font-serif text-4xl md:text-5xl font-normal leading-tight max-w-2xl mb-24">Made to Inspire.<br>Built to deploy.</h2>
+    <h2 style="font-family: 'lores-9-wide-bold-alt-oaklan', monospace; font-weight: 400; font-size: clamp(22px, 3vw, 44px); line-height: 1.25; color: #FFFFFF; max-width: 36rem; margin-bottom: 64px;">Made to Inspire.<br>Built to deploy.</h2>
 
     <div class="grid grid-cols-3 gap-0 border-b border-border">
-      <div class="pb-12 pr-10 border-r border-border">
-        <div class="text-xs tracking-widest text-text-secondary/20 mb-5">01</div>
-        <div class="font-serif text-2xl font-normal mb-3">Taste is Strategy</div>
+      <div class="values-item pb-12 pr-10 border-r border-border">
+        <div style="font-family: 'lores-9-narrow', monospace; font-weight: 700; font-size: 10px; letter-spacing: 0.2em; color: rgba(245,242,238,0.2); margin-bottom: 20px;">01</div>
+        <div style="font-family: 'lores-15', monospace; font-weight: 700; font-size: 18px; color: #FFFFFF; margin-bottom: 12px;">Taste is Strategy</div>
         <div class="text-sm text-text-secondary/45 leading-relaxed">Design isn't decoration — it's direction. How your brand looks tells the market what to think about how you operate.</div>
       </div>
-      <div class="pb-12 px-10 border-r border-border">
-        <div class="text-xs tracking-widest text-text-secondary/20 mb-5">02</div>
-        <div class="font-serif text-2xl font-normal mb-3">Clarity is Currency</div>
+      <div class="values-item pb-12 px-10 border-r border-border">
+        <div style="font-family: 'lores-9-narrow', monospace; font-weight: 700; font-size: 10px; letter-spacing: 0.2em; color: rgba(245,242,238,0.2); margin-bottom: 20px;">02</div>
+        <div style="font-family: 'lores-15', monospace; font-weight: 700; font-size: 18px; color: #FFFFFF; margin-bottom: 12px;">Clarity is Currency</div>
         <div class="text-sm text-text-secondary/45 leading-relaxed">Clear brands grow. We remove the noise and sharpen your signal until every asset earns its place.</div>
       </div>
-      <div class="pb-12 pl-10">
-        <div class="text-xs tracking-widest text-text-secondary/20 mb-5">03</div>
-        <div class="font-serif text-2xl font-normal mb-3">Collaboration Over Control</div>
+      <div class="values-item pb-12 pl-10">
+        <div style="font-family: 'lores-9-narrow', monospace; font-weight: 700; font-size: 10px; letter-spacing: 0.2em; color: rgba(245,242,238,0.2); margin-bottom: 20px;">03</div>
+        <div style="font-family: 'lores-15', monospace; font-weight: 700; font-size: 18px; color: #FFFFFF; margin-bottom: 12px;">Collaboration Over Control</div>
         <div class="text-sm text-text-secondary/45 leading-relaxed">We co-create, not babysit. The best work happens when founders stay in the room and trust the process.</div>
       </div>
     </div>
@@ -200,7 +200,7 @@ $case_studies = $case_studies ?? [];
 <!-- Fit Check Section -->
 <section class="border-b border-border">
   <div class="grid grid-cols-2 gap-0.5">
-    <div class="px-12 py-24 bg-white/3">
+    <div class="fit-panel px-12 py-24 bg-white/3">
       <div class="text-xs tracking-widest text-accent uppercase mb-10">A Good Fit</div>
       <div class="space-y-5">
         <div class="pb-5 border-b border-border text-base text-text-secondary/70">You see design as a business multiplier</div>
@@ -210,7 +210,7 @@ $case_studies = $case_studies ?? [];
       </div>
     </div>
 
-    <div class="px-12 py-24 bg-white/1">
+    <div class="fit-panel px-12 py-24 bg-white/1">
       <div class="text-xs tracking-widest text-text-secondary/30 uppercase mb-10">Not a Good Fit</div>
       <div class="space-y-5">
         <div class="pb-5 border-b border-border text-base text-text-secondary/70">Micromanagers and design-by-committee</div>
@@ -224,14 +224,14 @@ $case_studies = $case_studies ?? [];
 
 <!-- CTA Section -->
 <section class="border-b border-border relative overflow-hidden">
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-9xl text-white opacity-5 pointer-events-none whitespace-nowrap" style="font-size: clamp(100px, 18vw, 260px); white-space: nowrap;">Deploy</div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none whitespace-nowrap" style="font-family: 'lores-28', monospace; font-weight: 400; font-size: clamp(100px, 18vw, 260px); color: rgba(255,255,255,0.04); white-space: nowrap; user-select: none;">Deploy</div>
 
   <div class="relative z-10 px-12 py-32 text-center">
     <div class="text-xs font-bold tracking-wider text-accent uppercase mb-6 flex justify-center items-center gap-2">
       <span class="inline-block w-2 h-2 bg-accent rounded-full animate-pulse"></span>Ready when you are
     </div>
-    <h2 class="font-serif text-5xl md:text-6xl font-normal leading-tight max-w-3xl mx-auto mb-10">Let's build something the market won't forget.</h2>
-    <div class="flex gap-5 justify-center">
+    <h2 style="font-family: 'lores-22-serif', monospace; font-weight: 700; font-size: clamp(28px, 4vw, 56px); line-height: 1.15; color: #FFFFFF; max-width: 36rem; margin: 0 auto 40px;">Let's build something the market won't forget.</h2>
+    <div class="cta-section-btns flex gap-5 justify-center">
       <a href="mailto:dough@casestudy-labs.com" class="bg-accent text-black px-8 py-3 font-bold text-xs tracking-widest uppercase hover:opacity-85 transition">Send a Message</a>
       <a href="https://calendar.app.google/wjzdm2J4EUE1oxh36" target="_blank" class="text-text-secondary text-xs tracking-widest uppercase border-b border-text-secondary/25 pb-0.5 hover:text-white hover:border-white transition">Book a Discovery Call ↗</a>
     </div>

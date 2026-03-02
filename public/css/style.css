@@ -230,7 +230,9 @@ html { -webkit-text-size-adjust: none; text-size-adjust: none; }
 /* ─── Trust bar marquee ───────────────────────────────────────────────────── */
 .marquee-container {
     flex: 1;
+    min-width: 0;           /* prevent flex child from overflowing parent */
     overflow: hidden;
+    max-width: 100%;
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
     mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
 }
@@ -276,4 +278,49 @@ html { -webkit-text-size-adjust: none; text-size-adjust: none; }
 
 @media (prefers-reduced-motion: reduce) {
     .stat-card, .stats-dot { transition: none; }
+}
+
+/* ─── Mobile: section layout overrides ──────────────────────────────────────
+   Fixes horizontal scroll and broken grid layouts on small screens.
+   Targets compiled Tailwind class names directly — no rebuild needed.
+   ─────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+
+    /* Prevent any child from causing horizontal scroll */
+    main { overflow-x: hidden; }
+
+    /* Section horizontal padding */
+    main .px-12 { padding-left: 20px !important; padding-right: 20px !important; }
+
+    /* Fit check panels have their own px-12 */
+    .fit-panel { padding-left: 20px !important; padding-right: 20px !important; }
+
+    /* Stack 2- and 3-column grids */
+    main .grid-cols-2,
+    main .grid-cols-3 { grid-template-columns: 1fr !important; }
+
+    /* Services table row: flex on mobile, hide number + description columns */
+    .service-row {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+    }
+    .service-num  { display: none !important; }
+    .service-desc { display: none !important; }
+
+    /* Values grid: remove side borders/padding when stacked */
+    .values-item {
+        border-right: none !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-bottom: 32px !important;
+        border-bottom: 1px solid rgba(245,242,238,0.08);
+    }
+    .values-item:last-child { border-bottom: none; }
+
+    /* CTA flex: stack buttons on mobile */
+    .cta-section-btns { flex-direction: column !important; align-items: center !important; gap: 20px !important; }
 }
