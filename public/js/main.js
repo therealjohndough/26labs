@@ -99,6 +99,88 @@
     }
 })();
 
+// ─── Nav scroll effect ────────────────────────────────────────────────────────
+// Adds .nav-scrolled class after 60px scroll → CSS applies bg-opacity transition
+(function () {
+    const nav = document.getElementById('site-nav');
+    if (!nav) return;
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('nav-scrolled', window.scrollY > 60);
+    }, { passive: true });
+})();
+
+// ─── Stats scroll — lift, dots, drag-to-scroll ───────────────────────────────
+// Mobile: proximity lift on active card, dot indicator, mouse drag-to-scroll.
+// Desktop: CSS grid takes over at 1024px, JS effects are benign (no-op layout).
+(function () {
+    const scroll = document.getElementById('stats-scroll');
+    const dots = document.querySelectorAll('.stats-dot');
+    if (!scroll) return;
+
+    // Dot indicator — update active dot based on scroll position
+    function updateDots() {
+        if (!dots.length) return;
+        const cards = scroll.querySelectorAll('.stat-card');
+        if (!cards.length) return;
+        const cardWidth = cards[0].offsetWidth + 2; // +2 for gap
+        const active = Math.min(
+            Math.round(scroll.scrollLeft / cardWidth),
+            dots.length - 1
+        );
+        dots.forEach((d, i) => d.classList.toggle('active', i === active));
+    }
+
+    scroll.addEventListener('scroll', updateDots, { passive: true });
+
+    // Lift animation — skip if prefers-reduced-motion
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReduced) {
+        scroll.addEventListener('scroll', () => {
+            const cards = scroll.querySelectorAll('.stat-card');
+            const center = scroll.scrollLeft + scroll.offsetWidth / 2;
+            cards.forEach(card => {
+                const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+                const dist = Math.abs(center - cardCenter);
+                const maxDist = scroll.offsetWidth * 0.75;
+                const proximity = Math.max(0, 1 - dist / maxDist);
+                const lift = proximity * -8;
+                const scale = 0.97 + proximity * 0.03;
+                card.style.transform = `translateY(${lift}px) scale(${scale})`;
+                card.style.borderColor = proximity > 0.6
+                    ? 'rgba(217,255,92,0.15)'
+                    : 'transparent';
+                card.style.background = proximity > 0.6 ? '#2a2a2a' : '#242424';
+            });
+        }, { passive: true });
+    }
+
+    // Drag-to-scroll (mouse)
+    let isDown = false;
+    let startX = 0;
+    let startLeft = 0;
+
+    scroll.addEventListener('mousedown', e => {
+        isDown = true;
+        scroll.classList.add('is-dragging');
+        startX = e.pageX - scroll.offsetLeft;
+        startLeft = scroll.scrollLeft;
+    });
+    document.addEventListener('mouseup', () => {
+        isDown = false;
+        scroll.classList.remove('is-dragging');
+    });
+    scroll.addEventListener('mouseleave', () => {
+        isDown = false;
+        scroll.classList.remove('is-dragging');
+    });
+    scroll.addEventListener('mousemove', e => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - scroll.offsetLeft;
+        scroll.scrollLeft = startLeft - (x - startX);
+    });
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
     // Smooth scroll functionality
     document.querySelectorAll('[data-scroll-to]').forEach(element => {
@@ -110,28 +192,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    // Mobile navbar toggle
-    const navbarToggle = document.getElementById('navbarToggle');
-    const navbarMenu = document.getElementById('navbarMenu');
-
-    if (navbarToggle) {
-        navbarToggle.addEventListener('click', () => {
-            navbarMenu.classList.toggle('active');
-        });
-    }
-
-    // Sticky navbar effect
-    const navbar = document.getElementById('navbar');
-    if (navbar) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 10) {
-                navbar.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
-            } else {
-                navbar.style.boxShadow = '0 1px 3px rgba(0,0,0,0.05)';
-            }
-        });
-    }
 
     // Inquiry form submission
     const inquiryForm = document.getElementById('inquiryForm');

@@ -6,7 +6,7 @@ $case_studies = $case_studies ?? [];
 ?>
 
 <!-- Hero Section -->
-<section class="min-h-screen flex flex-col justify-end px-12 py-20 border-b border-border relative overflow-hidden">
+<section class="min-h-screen flex flex-col justify-end px-5 md:px-12 py-20 border-b border-border relative overflow-hidden">
 
   <div class="relative z-10">
     <!-- Eyebrow -->
@@ -16,19 +16,19 @@ $case_studies = $case_studies ?? [];
     </div>
 
     <!-- Headline — two lines, staggered in via JS -->
-    <h1 class="mb-10" style="font-family: 'lores-21-serif', monospace; font-weight: 400; font-size: clamp(52px, 7vw, 88px); line-height: 1.05; color: #FFFFFF; margin-bottom: 40px;">
+    <h1 class="hero-headline">
       <span class="hero-line" style="display: block;">Strategy you</span>
       <span class="hero-line" style="display: block;">can deploy.</span>
     </h1>
 
     <!-- Subheading -->
-    <p class="mb-12" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.65; color: #E8E8E8; max-width: 480px; margin-bottom: 48px;">
+    <p class="hero-body">
       Founded in 2016 in Buffalo, NY — strategic design and brand elevation for cannabis and lifestyle leaders. We build brands that define categories, command attention, and drive revenue.
     </p>
 
-    <!-- CTA Buttons -->
-    <div class="flex gap-5 items-center">
-      <a href="/contact" style="font-family: 'lores-15', monospace; font-weight: 700; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; background: #D9FF5C; color: #1A1A1A; padding: 14px 32px; text-decoration: none; display: inline-block; transition: background 150ms ease-out;">
+    <!-- CTA Buttons — stacked on mobile, row on desktop -->
+    <div class="flex flex-col md:flex-row gap-4 md:gap-5 items-start md:items-center">
+      <a href="/contact" class="hero-cta-primary">
         START A PROJECT →
       </a>
       <a href="/services" class="text-text-secondary text-xs tracking-widest uppercase border-b border-text-secondary/25 pb-0.5 hover:text-white hover:border-white transition">
@@ -37,8 +37,8 @@ $case_studies = $case_studies ?? [];
     </div>
   </div>
 
-  <!-- Scroll indicator -->
-  <div class="absolute bottom-20 right-12" style="writing-mode: vertical-rl; transform: rotate(180deg); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 10px; letter-spacing: 0.14em; color: #888888; text-transform: uppercase;">
+  <!-- Scroll indicator — desktop only -->
+  <div class="hidden md:block absolute bottom-20 right-12" style="writing-mode: vertical-rl; transform: rotate(180deg); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 10px; letter-spacing: 0.14em; color: #888888; text-transform: uppercase;">
     Scroll
   </div>
 
@@ -60,52 +60,36 @@ $case_studies = $case_studies ?? [];
   </div>
 </div>
 
-<!-- Stats Section — Direction 01 scoreboard -->
-<section style="border-top: 1px solid rgba(245,242,238,0.08); border-bottom: 1px solid rgba(245,242,238,0.08);">
-  <div class="px-12" style="padding-top: 80px; padding-bottom: 80px;">
-    <div class="grid grid-cols-4" style="gap: 0;">
+<!-- Stats Section — scroll on mobile, grid on desktop -->
+<section class="stats-section">
+  <div class="stats-scroll" id="stats-scroll">
 
-      <div style="padding-right: 48px; border-right: 1px solid rgba(245,242,238,0.08);">
-        <div class="stat-number" data-target="300" data-suffix="+"
-          style="font-family: 'lores-9-wide', monospace; font-weight: 400; font-size: 96px; line-height: 1; color: #D9FF5C; margin-bottom: 16px;">
-          300+
-        </div>
-        <div style="font-family: 'lores-9-narrow', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.16em; color: #888888; text-transform: uppercase; line-height: 1.5;">
-          PRODUCTS<br>LAUNCHED
-        </div>
-      </div>
-
-      <div style="padding-left: 48px; padding-right: 48px; border-right: 1px solid rgba(245,242,238,0.08);">
-        <div class="stat-number" data-target="100" data-suffix="%"
-          style="font-family: 'lores-9-wide', monospace; font-weight: 400; font-size: 96px; line-height: 1; color: #D9FF5C; margin-bottom: 16px;">
-          100%
-        </div>
-        <div style="font-family: 'lores-9-narrow', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.16em; color: #888888; text-transform: uppercase; line-height: 1.5;">
-          FOUNDER-LED<br>PROJECTS
-        </div>
-      </div>
-
-      <div style="padding-left: 48px; padding-right: 48px; border-right: 1px solid rgba(245,242,238,0.08);">
-        <div class="stat-number" data-target="0" data-suffix=""
-          style="font-family: 'lores-9-wide', monospace; font-weight: 400; font-size: 96px; line-height: 1; color: #D9FF5C; margin-bottom: 16px;">
-          0
-        </div>
-        <div style="font-family: 'lores-9-narrow', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.16em; color: #888888; text-transform: uppercase; line-height: 1.5;">
-          OCM<br>FAILURES
-        </div>
-      </div>
-
-      <div style="padding-left: 48px;">
-        <div class="stat-number" data-target="1000" data-suffix="+"
-          style="font-family: 'lores-9-wide', monospace; font-weight: 400; font-size: 96px; line-height: 1; color: #D9FF5C; margin-bottom: 16px;">
-          1,000+
-        </div>
-        <div style="font-family: 'lores-9-narrow', monospace; font-weight: 700; font-size: 11px; letter-spacing: 0.16em; color: #888888; text-transform: uppercase; line-height: 1.5;">
-          RETAIL<br>TOUCHPOINTS
-        </div>
-      </div>
-
+    <div class="stat-card">
+      <div class="stat-number" data-target="300" data-suffix="+">300+</div>
+      <div class="stat-label">PRODUCTS<br>LAUNCHED</div>
     </div>
+
+    <div class="stat-card">
+      <div class="stat-number" data-target="100" data-suffix="%">100%</div>
+      <div class="stat-label">FOUNDER-LED<br>PROJECTS</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-number" data-target="0" data-suffix="">0</div>
+      <div class="stat-label">OCM<br>FAILURES</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-number" data-target="1000" data-suffix="+">1,000+</div>
+      <div class="stat-label">RETAIL<br>TOUCHPOINTS</div>
+    </div>
+
+  </div>
+  <div class="stats-dots" id="stats-dots">
+    <div class="stats-dot active"></div>
+    <div class="stats-dot"></div>
+    <div class="stats-dot"></div>
+    <div class="stats-dot"></div>
   </div>
 </section>
 

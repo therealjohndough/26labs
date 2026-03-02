@@ -70,3 +70,163 @@ input, textarea, select, button {
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(200,240,74,0.4);
 }
+
+/* ─── Mobile typography — pixel-multiple sizing ───────────────────────────
+   Lo-Res 9 native = 9px  →  72px mobile (8×),  96px desktop
+   Lo-Res 21 native = 21px → 64px mobile (≈3×), 88px desktop (≈4×)
+   Never size Lo-Res at arbitrary odd values — pixel bleeding on device
+   ─────────────────────────────────────────────────────────────────────── */
+
+html { -webkit-text-size-adjust: none; text-size-adjust: none; }
+
+/* Hero headline */
+.hero-headline {
+    font-family: 'lores-21-serif', monospace;
+    font-weight: 400;
+    font-size: 64px;        /* ≈3× native (21px) — pixel-clean on mobile */
+    line-height: 1.05;
+    color: #FFFFFF;
+    margin-bottom: 40px;
+}
+@media (min-width: 768px) {
+    .hero-headline { font-size: clamp(64px, 7vw, 88px); } /* 88 ≈ 4× native */
+}
+
+/* Hero body */
+.hero-body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    color: #E8E8E8;
+    max-width: 480px;
+    margin-bottom: 48px;
+}
+@media (min-width: 768px) { .hero-body { font-size: 16px; } }
+
+/* Hero primary CTA — full width on mobile, inline on desktop */
+.hero-cta-primary {
+    font-family: 'lores-15', monospace;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: #D9FF5C;
+    color: #1A1A1A;
+    height: 52px;           /* comfortable touch target */
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-decoration: none;
+    transition: background 150ms ease-out;
+}
+@media (min-width: 768px) {
+    .hero-cta-primary { width: auto; display: inline-flex; }
+}
+
+/* ─── Stats block — horizontal scroll on mobile, grid on desktop ──────── */
+
+.stats-section {
+    border-top: 1px solid rgba(245,242,238,0.08);
+    border-bottom: 1px solid rgba(245,242,238,0.08);
+}
+
+.stats-scroll {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    cursor: grab;
+    padding: 40px 20px;
+    gap: 2px;
+}
+.stats-scroll::-webkit-scrollbar { display: none; }
+.stats-scroll.is-dragging { cursor: grabbing; }
+
+.stat-card {
+    flex: 0 0 72vw;
+    max-width: 280px;
+    scroll-snap-align: start;
+    padding: 32px 24px;
+    background: #242424;
+    border: 1px solid transparent;
+    will-change: transform;
+    transition:
+        transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 300ms ease,
+        background 300ms ease;
+}
+
+.stat-number {
+    font-family: 'lores-9-wide', monospace;
+    font-weight: 400;
+    font-size: 72px;        /* 8× native (9px) — pixel-correct on mobile */
+    line-height: 1;
+    color: #D9FF5C;
+    margin-bottom: 16px;
+}
+
+.stat-label {
+    font-family: 'lores-9-narrow', monospace;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: #888888;
+    text-transform: uppercase;
+    line-height: 1.5;
+}
+
+/* Dot indicators */
+.stats-dots {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    padding-bottom: 32px;
+}
+.stats-dot {
+    width: 4px;
+    height: 4px;
+    background: #888888;
+    flex-shrink: 0;
+    transition: width 200ms ease, background 200ms ease;
+}
+.stats-dot.active { background: #D9FF5C; width: 16px; }
+
+/* Desktop: 4-column grid */
+@media (min-width: 1024px) {
+    .stats-scroll {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        overflow: visible;
+        cursor: default;
+        padding: 80px 48px;
+        gap: 0;
+        overscroll-behavior-x: auto;
+    }
+    .stats-scroll.is-dragging { cursor: default; }
+    .stat-card {
+        flex: none;
+        max-width: none;
+        scroll-snap-align: none;
+        background: transparent;
+        border: none;
+        border-right: 1px solid rgba(245,242,238,0.08);
+        padding: 0 48px 0 0;
+        will-change: auto;
+        transform: none !important;
+    }
+    .stat-card:not(:first-child) { padding-left: 48px; }
+    .stat-card:last-child { border-right: none; padding-right: 0; }
+    .stat-number { font-size: 96px; } /* 96 ≈ 10.7× native — accepted desktop exception */
+    .stats-dots { display: none; }
+}
+
+/* Nav scroll state */
+.nav-scrolled { background: rgba(26,26,26,0.95) !important; }
+
+@media (prefers-reduced-motion: reduce) {
+    .stat-card, .stats-dot { transition: none; }
+}
