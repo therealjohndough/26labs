@@ -3,23 +3,22 @@
  */
 
 // ─── Hero headline stagger ───────────────────────────────────────────────────
+// Progressive enhancement: text visible by default, JS adds hidden state
+// then animates in. No JS = headline always visible.
 // Fires 300ms after load. Each line staggers 80ms apart.
 // Respects prefers-reduced-motion.
 (function () {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return; // no-op — text stays visible, no animation
+
+    // Inject hidden state now, before DOM is fully ready
+    const hideStyle = document.createElement('style');
+    hideStyle.textContent = '.hero-line { opacity: 0; transform: translateY(24px); }';
+    document.head.appendChild(hideStyle);
 
     function revealHeroLines() {
         const lines = document.querySelectorAll('.hero-line');
         if (!lines.length) return;
-
-        if (prefersReduced) {
-            lines.forEach(line => {
-                line.style.opacity = '1';
-                line.style.transform = 'translateY(0)';
-            });
-            return;
-        }
-
         lines.forEach((line, i) => {
             setTimeout(() => {
                 line.style.transition = 'opacity 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1)';
