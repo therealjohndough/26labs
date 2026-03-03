@@ -25,12 +25,12 @@ $case_studies = $case_studies ?? [];
         <?= htmlspecialchars($service['title']) ?>
       </div>
       <h1 class="leading-tight" style="font-family: 'lores-21-serif', monospace; font-weight: 400; font-size: clamp(32px, 4.5vw, 60px); color: #FFFFFF;">
-        The foundation everything else is built on.
+        <?= htmlspecialchars($service['description'] ?? 'We build brands that move markets.') ?>
       </h1>
     </div>
     <div>
       <p class="text-base text-text-secondary leading-relaxed mb-8">
-        <?= htmlspecialchars($service['description'] ?? 'Premium service for delivering exceptional results.') ?>
+        <?= htmlspecialchars($service['short_description'] ?? '') ?>
       </p>
       <div class="flex gap-5">
         <a href="mailto:dough@casestudy-labs.com" class="bg-accent text-black px-8 py-3 font-bold text-xs tracking-widest uppercase hover:opacity-85 transition">

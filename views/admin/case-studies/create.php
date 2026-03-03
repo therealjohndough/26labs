@@ -31,6 +31,12 @@
     </div>
 
     <div class="form-group">
+        <label for="hero_image">Hero Image URL</label>
+        <input type="text" id="hero_image" name="hero_image" placeholder="https://...">
+        <span class="form-hint">Full URL to the hero image shown at the top of the case study</span>
+    </div>
+
+    <div class="form-group">
         <label for="year">Year</label>
         <input type="number" id="year" name="year" value="<?php echo date('Y'); ?>">
     </div>

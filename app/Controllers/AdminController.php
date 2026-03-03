@@ -39,6 +39,7 @@ class AdminController {
         $this->render('admin/case-studies/list', [
             'title' => 'Case Studies',
             'user' => Auth::getUser(),
+            'unreadInquiries' => Inquiry::countUnread(),
             'caseStudies' => $caseStudies,
             'csrf_token' => CSRF::getToken(),
             'csrf_field' => CSRF::getFieldName(),
@@ -51,6 +52,7 @@ class AdminController {
         $this->render('admin/case-studies/create', [
             'title' => 'Create Case Study',
             'user' => Auth::getUser(),
+            'unreadInquiries' => Inquiry::countUnread(),
             'csrf_token' => CSRF::getToken(),
             'csrf_field' => CSRF::getFieldName(),
         ]);
@@ -76,6 +78,7 @@ class AdminController {
             'description' => htmlspecialchars($_POST['description'] ?? ''),
             'tags' => htmlspecialchars($_POST['tags'] ?? ''),
             'services_provided' => htmlspecialchars($_POST['services_provided'] ?? ''),
+            'hero_image' => htmlspecialchars($_POST['hero_image'] ?? ''),
             'year' => (int)($_POST['year'] ?? date('Y')),
         ];
 
@@ -101,6 +104,7 @@ class AdminController {
         $this->render('admin/case-studies/edit', [
             'title' => 'Edit Case Study',
             'user' => Auth::getUser(),
+            'unreadInquiries' => Inquiry::countUnread(),
             'caseStudy' => $caseStudy,
             'csrf_token' => CSRF::getToken(),
             'csrf_field' => CSRF::getFieldName(),
@@ -127,6 +131,7 @@ class AdminController {
             'description' => htmlspecialchars($_POST['description'] ?? ''),
             'tags' => htmlspecialchars($_POST['tags'] ?? ''),
             'services_provided' => htmlspecialchars($_POST['services_provided'] ?? ''),
+            'hero_image' => htmlspecialchars($_POST['hero_image'] ?? ''),
             'year' => (int)($_POST['year'] ?? date('Y')),
         ];
 
@@ -166,6 +171,7 @@ class AdminController {
         $this->render('admin/inquiries', [
             'title' => 'Inquiries',
             'user' => Auth::getUser(),
+            'unreadInquiries' => Inquiry::countUnread(),
             'inquiries' => $inquiries,
             'csrf_token' => CSRF::getToken(),
             'csrf_field' => CSRF::getFieldName(),
@@ -187,6 +193,7 @@ class AdminController {
         $this->render('admin/inquiry-detail', [
             'title' => 'View Inquiry',
             'user' => Auth::getUser(),
+            'unreadInquiries' => Inquiry::countUnread(),
             'inquiry' => $inquiry,
             'csrf_token' => CSRF::getToken(),
             'csrf_field' => CSRF::getFieldName(),
@@ -215,6 +222,7 @@ class AdminController {
         $this->render('admin/services/list', [
             'title' => 'Services',
             'user' => Auth::getUser(),
+            'unreadInquiries' => Inquiry::countUnread(),
             'services' => $services,
             'csrf_token' => CSRF::getToken(),
             'csrf_field' => CSRF::getFieldName(),
@@ -227,6 +235,7 @@ class AdminController {
         $this->render('admin/services/create', [
             'title' => 'Create Service',
             'user' => Auth::getUser(),
+            'unreadInquiries' => Inquiry::countUnread(),
             'csrf_token' => CSRF::getToken(),
             'csrf_field' => CSRF::getFieldName(),
         ]);
@@ -276,6 +285,7 @@ class AdminController {
         $this->render('admin/services/edit', [
             'title' => 'Edit Service',
             'user' => Auth::getUser(),
+            'unreadInquiries' => Inquiry::countUnread(),
             'service' => $service,
             'csrf_token' => CSRF::getToken(),
             'csrf_field' => CSRF::getFieldName(),

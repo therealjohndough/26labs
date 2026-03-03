@@ -82,8 +82,8 @@ $case_studies = $case_studies ?? [];
   <div class="stats-scroll" id="stats-scroll">
 
     <div class="stat-card">
-      <div class="stat-number" data-target="300" data-suffix="+">300+</div>
-      <div class="stat-label">PRODUCTS<br>LAUNCHED</div>
+      <div class="stat-number" data-target="350" data-suffix="+">350+</div>
+      <div class="stat-label">PRODUCTS<br>LAUNCHED IN NYS</div>
     </div>
 
     <div class="stat-card">
@@ -93,7 +93,7 @@ $case_studies = $case_studies ?? [];
 
     <div class="stat-card">
       <div class="stat-number" data-target="0" data-suffix="">0</div>
-      <div class="stat-label">OCM<br>FAILURES</div>
+      <div class="stat-label">OCM<br>RECALLS</div>
     </div>
 
     <div class="stat-card">
