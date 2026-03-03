@@ -26,7 +26,14 @@ $caseStudies = $caseStudies ?? [];
           <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?php echo htmlspecialchars($study['hero_image']); ?>');"></div>
           <div class="absolute inset-0 bg-black/35"></div>
           <?php else: ?>
-          <div class="absolute inset-0 bg-gradient-to-br from-blue-900 to-blue-800"></div>
+          <div class="absolute inset-0" style="background:
+            radial-gradient(circle at 20% 20%, rgba(184, 255, 92, 0.22), transparent 32%),
+            radial-gradient(circle at 78% 18%, rgba(255, 214, 94, 0.16), transparent 28%),
+            linear-gradient(135deg, #0b3f39 0%, #14564d 42%, #1f2c27 100%);"></div>
+          <div class="absolute inset-0 opacity-20" style="background-image:
+            linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+            background-size: 28px 28px;"></div>
           <?php endif; ?>
           <div class="absolute bottom-5 left-5 right-5">
             <div class="text-xs tracking-widest text-accent uppercase mb-2"><?php echo htmlspecialchars($study['year'] ?? ''); ?></div>

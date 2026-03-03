@@ -22,7 +22,17 @@ $services = array_filter(array_map('trim', explode(',', (string) ($caseStudy['se
     <?php if (!empty($caseStudy['hero_image'])): ?>
     <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?php echo htmlspecialchars($caseStudy['hero_image']); ?>');"></div>
     <?php else: ?>
-    <div class="absolute inset-0 bg-gradient-to-br from-blue-900 to-blue-800"></div>
+    <div class="absolute inset-0" style="background:
+      radial-gradient(circle at 18% 22%, rgba(184, 255, 92, 0.22), transparent 26%),
+      radial-gradient(circle at 78% 18%, rgba(255, 214, 94, 0.14), transparent 24%),
+      linear-gradient(135deg, #0b3f39 0%, #14564d 38%, #1f2c27 100%);"></div>
+    <div class="absolute inset-0 opacity-20" style="background-image:
+      linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+      background-size: 36px 36px;"></div>
+    <div class="absolute inset-y-0 right-0 w-1/2 opacity-10 flex items-center justify-center" style="font-family: 'lores-28', monospace; font-size: clamp(120px, 18vw, 280px); color: #FFFFFF;">
+      <?php echo htmlspecialchars(strtoupper(substr($caseStudy['client_name'] ?? $caseStudy['title'], 0, 2))); ?>
+    </div>
     <?php endif; ?>
     <div class="absolute inset-0 bg-black/65"></div>
 
