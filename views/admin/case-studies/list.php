@@ -17,6 +17,7 @@
     <thead>
         <tr>
             <th>Title</th>
+            <th>Slug</th>
             <th>Client</th>
             <th>Year</th>
             <th>Actions</th>
@@ -26,6 +27,7 @@
         <?php foreach ($caseStudies as $case): ?>
         <tr>
             <td><?php echo htmlspecialchars($case['title']); ?></td>
+            <td><?php echo htmlspecialchars($case['slug'] ?? ''); ?></td>
             <td><?php echo htmlspecialchars($case['client_name']); ?></td>
             <td><?php echo htmlspecialchars($case['year']); ?></td>
             <td>

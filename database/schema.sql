@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 CREATE TABLE IF NOT EXISTS `case_studies` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
   `title` VARCHAR(255) NOT NULL,
+  `slug` VARCHAR(255) UNIQUE NOT NULL,
   `client_name` VARCHAR(255) NOT NULL,
   `description` LONGTEXT,
   `tags` VARCHAR(255),

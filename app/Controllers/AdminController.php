@@ -74,11 +74,13 @@ class AdminController {
 
         $data = [
             'title' => htmlspecialchars($_POST['title'] ?? ''),
+            'slug' => htmlspecialchars(strtolower($_POST['slug'] ?? '')),
             'client_name' => htmlspecialchars($_POST['client_name'] ?? ''),
             'description' => htmlspecialchars($_POST['description'] ?? ''),
             'tags' => htmlspecialchars($_POST['tags'] ?? ''),
             'services_provided' => htmlspecialchars($_POST['services_provided'] ?? ''),
             'hero_image' => htmlspecialchars($_POST['hero_image'] ?? ''),
+            'gallery_images' => htmlspecialchars($_POST['gallery_images'] ?? ''),
             'year' => (int)($_POST['year'] ?? date('Y')),
         ];
 
@@ -127,11 +129,13 @@ class AdminController {
 
         $data = [
             'title' => htmlspecialchars($_POST['title'] ?? ''),
+            'slug' => htmlspecialchars(strtolower($_POST['slug'] ?? '')),
             'client_name' => htmlspecialchars($_POST['client_name'] ?? ''),
             'description' => htmlspecialchars($_POST['description'] ?? ''),
             'tags' => htmlspecialchars($_POST['tags'] ?? ''),
             'services_provided' => htmlspecialchars($_POST['services_provided'] ?? ''),
             'hero_image' => htmlspecialchars($_POST['hero_image'] ?? ''),
+            'gallery_images' => htmlspecialchars($_POST['gallery_images'] ?? ''),
             'year' => (int)($_POST['year'] ?? date('Y')),
         ];
 

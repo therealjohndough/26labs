@@ -11,6 +11,12 @@
     </div>
 
     <div class="form-group">
+        <label for="slug">Slug (URL) *</label>
+        <input type="text" id="slug" name="slug" required pattern="^[a-z0-9-]+$" value="<?php echo htmlspecialchars($caseStudy['slug'] ?? ''); ?>">
+        <span class="form-hint">Lowercase, hyphens only. Used in /work/{slug}</span>
+    </div>
+
+    <div class="form-group">
         <label for="client_name">Client Name *</label>
         <input type="text" id="client_name" name="client_name" value="<?php echo htmlspecialchars($caseStudy['client_name']); ?>" required>
     </div>
@@ -32,8 +38,14 @@
 
     <div class="form-group">
         <label for="hero_image">Hero Image URL</label>
-        <input type="text" id="hero_image" name="hero_image" value="<?php echo htmlspecialchars($caseStudy['hero_image'] ?? ''); ?>" placeholder="https://...">
-        <span class="form-hint">Full URL to the hero image shown at the top of the case study</span>
+        <input type="text" id="hero_image" name="hero_image" value="<?php echo htmlspecialchars($caseStudy['hero_image'] ?? ''); ?>" placeholder="/uploads/case-studies/farm-fresh-branding/hero.png">
+        <span class="form-hint">Use a site path or full URL for the hero image shown at the top of the case study.</span>
+    </div>
+
+    <div class="form-group">
+        <label for="gallery_images">Gallery Images (JSON array)</label>
+        <textarea id="gallery_images" name="gallery_images" rows="4"><?php echo htmlspecialchars($caseStudy['gallery_images'] ?? ''); ?></textarea>
+        <span class="form-hint">Paste a JSON array of image paths for the detail page gallery.</span>
     </div>
 
     <div class="form-group">

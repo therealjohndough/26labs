@@ -2,7 +2,7 @@
 // HomePage for Case Study Labs
 // Variables passed: $services, $case_studies
 $services = $services ?? [];
-$case_studies = $case_studies ?? [];
+$case_studies = $case_studies ?? ($caseStudies ?? []);
 ?>
 
 <!-- Hero Section -->
@@ -36,7 +36,7 @@ $case_studies = $case_studies ?? [];
       <a href="/contact" class="hero-cta-primary">
         START A PROJECT <i class="hn hn-arrow-right" style="margin-left: 6px;"></i>
       </a>
-      <a href="/services" class="text-text-secondary text-xs tracking-widest uppercase border-b border-text-secondary/25 pb-0.5 hover:text-white hover:border-white transition" style="display: inline-flex; align-items: center; gap: 6px;">
+      <a href="/work" class="text-text-secondary text-xs tracking-widest uppercase border-b border-text-secondary/25 pb-0.5 hover:text-white hover:border-white transition" style="display: inline-flex; align-items: center; gap: 6px;">
         See Our Work <i class="hn hn-external-link" style="font-size: 12px;"></i>
       </a>
     </div>
@@ -151,8 +151,13 @@ $case_studies = $case_studies ?? [];
 
     <div class="grid grid-cols-3 gap-0.5 bg-mid">
       <?php foreach (array_slice($case_studies, 0, 6) as $i => $study): ?>
-      <div class="aspect-video bg-mid relative overflow-hidden group cursor-pointer">
+      <a href="/work/<?= htmlspecialchars($study['slug'] ?? '') ?>" class="aspect-video bg-mid relative overflow-hidden group cursor-pointer block">
+        <?php if (!empty($study['hero_image'])): ?>
+        <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style="background-image: url('<?= htmlspecialchars($study['hero_image']) ?>');"></div>
+        <div class="absolute inset-0 bg-black/40"></div>
+        <?php else: ?>
         <div class="absolute inset-0 bg-gradient-to-br from-blue-900 to-blue-800 group-hover:scale-105 transition-transform duration-500"></div>
+        <?php endif; ?>
         <div class="absolute bottom-6 left-6 right-6 group-hover:opacity-0 transition-opacity">
           <div class="font-serif text-lg"><?= htmlspecialchars($study['title']) ?></div>
         </div>
@@ -161,7 +166,7 @@ $case_studies = $case_studies ?? [];
           <div class="font-serif text-lg mb-1"><?= htmlspecialchars($study['title']) ?></div>
           <div class="text-xs text-text-secondary/65"><?= htmlspecialchars(substr($study['description'] ?? '', 0, 100)) ?>...</div>
         </div>
-      </div>
+      </a>
       <?php endforeach; ?>
     </div>
   </div>

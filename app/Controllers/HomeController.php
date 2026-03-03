@@ -12,7 +12,11 @@ use App\Models\Stat;
 
 class HomeController {
     public function index(): void {
-        $caseStudies = CaseStudy::latest(6);
+        $caseStudies = array_values(array_filter(
+            CaseStudy::latest(12),
+            static fn(array $caseStudy): bool => !empty($caseStudy['slug'])
+        ));
+        $caseStudies = array_slice($caseStudies, 0, 6);
         $posts = Post::latest(3);
         $services = Service::all();
         $stats = Stat::all();
@@ -20,9 +24,25 @@ class HomeController {
         $this->render('pages/home', [
             'title' => 'Case Study Labs - Strategic Design & Brand Elevation',
             'caseStudies' => $caseStudies,
+            'case_studies' => $caseStudies,
             'posts' => $posts,
             'services' => $services,
             'stats' => $stats,
+            'csrf_token' => CSRF::getToken(),
+            'csrf_field' => CSRF::getFieldName(),
+        ]);
+    }
+
+    public function work(): void {
+        $caseStudies = array_values(array_filter(
+            CaseStudy::all(250),
+            static fn(array $caseStudy): bool => !empty($caseStudy['slug'])
+        ));
+
+        $this->render('pages/work', [
+            'title' => 'Our Work - Case Study Labs',
+            'caseStudies' => $caseStudies,
+            'meta_description' => 'Explore branding, digital, and strategy case studies from Case Study Labs.',
             'csrf_token' => CSRF::getToken(),
             'csrf_field' => CSRF::getFieldName(),
         ]);
@@ -39,9 +59,7 @@ class HomeController {
         ]);
     }
 
-    public function serviceDetail(): void {
-        $slug = $_GET['slug'] ?? '';
-        
+    public function serviceDetail(string $slug = ''): void {
         if (!$slug || !preg_match('/^[a-z0-9-]+$/', $slug)) {
             http_response_code(404);
             $this->render('pages/404', ['title' => 'Not Found']);
@@ -62,6 +80,47 @@ class HomeController {
             'title' => $service['title'] . ' - Case Study Labs',
             'service' => $service,
             'case_studies' => $caseStudies,
+            'csrf_token' => CSRF::getToken(),
+            'csrf_field' => CSRF::getFieldName(),
+        ]);
+    }
+
+    public function caseStudyDetail(string $slug = ''): void {
+        if (!$slug || !preg_match('/^[a-z0-9-]+$/', $slug)) {
+            http_response_code(404);
+            $this->render('pages/404', ['title' => 'Not Found']);
+            return;
+        }
+
+        $caseStudy = CaseStudy::findBySlug($slug);
+
+        if (!$caseStudy) {
+            http_response_code(404);
+            $this->render('pages/404', ['title' => 'Not Found']);
+            return;
+        }
+
+        $description = trim(strip_tags(html_entity_decode($caseStudy['description'] ?? '', ENT_QUOTES, 'UTF-8')));
+        $metaDescription = mb_substr($description, 0, 160);
+        $jsonLd = json_encode([
+            '@context' => 'https://schema.org',
+            '@type' => 'CreativeWork',
+            'name' => $caseStudy['title'],
+            'description' => $description,
+            'creator' => [
+                '@type' => 'Organization',
+                'name' => 'Case Study Labs',
+            ],
+            'dateCreated' => $caseStudy['year'],
+            'image' => $caseStudy['hero_image'],
+        ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+
+        $this->render('pages/case-study-detail', [
+            'title' => $caseStudy['title'] . ' - Case Study Labs',
+            'caseStudy' => $caseStudy,
+            'meta_description' => $metaDescription,
+            'og_image' => $caseStudy['hero_image'] ?? '',
+            'json_ld' => $jsonLd ?: '',
             'csrf_token' => CSRF::getToken(),
             'csrf_field' => CSRF::getFieldName(),
         ]);

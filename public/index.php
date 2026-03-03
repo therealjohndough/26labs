@@ -48,6 +48,8 @@ $router = new Router();
 
 // Frontend routes
 $router->get('/', 'HomeController@index');
+$router->get('/work', 'HomeController@work');
+$router->get('/work/{slug}', 'HomeController@caseStudyDetail');
 $router->get('/services', 'HomeController@services');
 $router->get('/services/{slug}', 'HomeController@serviceDetail');
 $router->get('/contact', 'HomeController@contact');
