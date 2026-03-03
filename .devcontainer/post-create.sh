@@ -1,22 +1,10 @@
 #!/bin/bash
 set -e
 
-echo "🔧 Setting up 26labs development environment..."
+echo "Setting up 26labs development environment..."
 
-# Update package manager
-echo "📦 Installing system dependencies..."
-apk update
-apk add --no-cache \
-  php82-pdo \
-  php82-pdo_mysql \
-  php82-sqlite3 \
-  php82-mbstring \
-  php82-json \
-  php82-tokenizer \
-  php82-ctype \
-  php82-dom \
-  php82-fileinfo \
-  php82-openssl
+# PHP extensions are already compiled into the devcontainer image (mcr.microsoft.com/devcontainers/php).
+# The Alpine apk repo does not carry php82-* packages, so we skip apk installs.
 
 # Install Composer
 echo "📝 Installing Composer..."

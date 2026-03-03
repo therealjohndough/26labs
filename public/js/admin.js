@@ -3,6 +3,28 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Mobile sidebar toggle
+    const toggle = document.getElementById('admin-mobile-toggle');
+    if (toggle) {
+        toggle.addEventListener('click', () => {
+            const open = document.body.classList.toggle('admin-nav-open');
+            toggle.setAttribute('aria-expanded', open);
+            toggle.querySelector('span').textContent = open ? 'Close' : 'Menu';
+        });
+
+        // Close sidebar on outside click
+        document.addEventListener('click', (e) => {
+            if (document.body.classList.contains('admin-nav-open') &&
+                !e.target.closest('#admin-sidebar') &&
+                !e.target.closest('#admin-mobile-toggle')) {
+                document.body.classList.remove('admin-nav-open');
+                toggle.setAttribute('aria-expanded', false);
+                toggle.querySelector('span').textContent = 'Menu';
+            }
+        });
+    }
+
+
     // Table row interactivity
     document.querySelectorAll('.admin-table tbody tr').forEach(row => {
         row.addEventListener('click', (e) => {

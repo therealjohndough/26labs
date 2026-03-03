@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="admin-layout">
-    <aside class="admin-sidebar">
+    <aside class="admin-sidebar" id="admin-sidebar">
         <div class="sidebar-header">
             <h1><a href="/admin/dashboard">26 Labs Admin</a></h1>
         </div>
@@ -36,7 +36,12 @@
 
     <main class="admin-content">
         <header class="admin-header">
-            <h1><?php echo $title ?? 'Admin'; ?></h1>
+            <div class="admin-header-title">
+                <button type="button" class="admin-mobile-toggle" id="admin-mobile-toggle" aria-expanded="false" aria-controls="admin-sidebar">
+                    <span>Menu</span>
+                </button>
+                <h1><?php echo $title ?? 'Admin'; ?></h1>
+            </div>
             <div class="admin-user">
                 <span><?php echo htmlspecialchars($user['email'] ?? 'Admin'); ?></span>
             </div>
