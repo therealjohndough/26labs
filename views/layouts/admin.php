@@ -28,6 +28,9 @@
                     <span class="badge"><?php echo $unreadInquiries; ?></span>
                 <?php endif; ?>
             </a>
+            <a href="/admin/services" class="nav-item <?php echo strpos($_SERVER['REQUEST_URI'], '/admin/services') !== false ? 'active' : ''; ?>">
+                <span>Services</span>
+            </a>
             <a href="/admin/logout" class="nav-item logout">
                 <span>Logout</span>
             </a>
