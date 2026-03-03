@@ -5,7 +5,7 @@
 <!-- Contact Hero -->
 <section class="min-h-screen px-12 py-32 flex items-center justify-center border-b border-border relative overflow-hidden">
   <!-- Background text -->
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-9xl text-white opacity-5 pointer-events-none whitespace-nowrap" style="font-size: clamp(100px, 18vw, 260px);">Contact</div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none whitespace-nowrap" style="font-family: 'lores-28', monospace; font-weight: 400; font-size: clamp(100px, 18vw, 260px); color: rgba(255,255,255,0.04); user-select: none;">Contact</div>
 
   <div class="relative z-10 max-w-2xl w-full text-center">
     <div class="text-xs font-bold tracking-wider text-accent uppercase mb-6 flex justify-center items-center gap-2">
@@ -13,7 +13,7 @@
       Let's Connect
     </div>
     
-    <h1 class="font-serif text-5xl md:text-6xl font-normal leading-tight mb-8">
+    <h1 class="leading-tight mb-8" style="font-family: 'lores-21-serif', monospace; font-weight: 400; font-size: clamp(32px, 4.5vw, 60px); color: #FFFFFF;">
       Let's talk. No strings attached.
     </h1>
 
@@ -26,7 +26,7 @@
       <!-- Email -->
       <div>
         <div class="text-xs tracking-widest text-text-secondary/30 uppercase mb-4">Email</div>
-        <a href="mailto:dough@casestudy-labs.com" class="font-serif text-2xl text-white hover:text-accent transition">
+        <a href="mailto:dough@casestudy-labs.com" class="text-white hover:text-accent transition" style="font-family: 'lores-15', monospace; font-weight: 700; font-size: clamp(14px, 1.5vw, 20px); letter-spacing: 0.04em;">
           dough@casestudy-labs.com
         </a>
         <p class="text-xs text-text-secondary/45 mt-2">(Only official inbox)</p>
@@ -35,7 +35,7 @@
       <!-- Calendar -->
       <div>
         <div class="text-xs tracking-widest text-text-secondary/30 uppercase mb-4">Book a Call</div>
-        <a href="https://calendar.app.google/wjzdm2J4EUE1oxh36" target="_blank" class="font-serif text-2xl text-white hover:text-accent transition">
+        <a href="https://calendar.app.google/wjzdm2J4EUE1oxh36" target="_blank" class="text-white hover:text-accent transition" style="font-family: 'lores-15', monospace; font-weight: 700; font-size: clamp(14px, 1.5vw, 20px); letter-spacing: 0.04em;">
           Google Calendar ↗
         </a>
         <p class="text-xs text-text-secondary/45 mt-2">(30 min discovery call)</p>
@@ -56,6 +56,81 @@
           Founder <span class="text-text-secondary/25">↗</span>
         </a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Inquiry Form -->
+<section class="border-b border-border">
+  <div class="px-12 py-24">
+    <div class="grid grid-cols-2 gap-24">
+
+      <div>
+        <div class="text-xs tracking-widest text-text-secondary/50 uppercase mb-6" style="display: inline-flex; align-items: center; gap: 8px;">
+          <i class="hn hn-envelope" style="font-size: 11px; color: #D9FF5C; line-height: 1;"></i>
+          Send an Inquiry
+        </div>
+        <h2 class="leading-tight mb-6" style="font-family: 'lores-9-wide-bold-alt-oaklan', monospace; font-weight: 400; font-size: clamp(22px, 3vw, 40px); color: #FFFFFF;">Tell us what<br>you're building.</h2>
+        <p class="text-sm leading-relaxed" style="color: #888888; max-width: 320px;">We read every inquiry personally. If there's a fit, you'll hear from us within 24 hours.</p>
+      </div>
+
+      <form id="inquiryForm" class="space-y-5" novalidate>
+        <input type="hidden" name="<?php echo htmlspecialchars($csrf_field ?? '_token'); ?>" value="<?php echo htmlspecialchars($csrf_token ?? ''); ?>">
+
+        <div class="grid grid-cols-2 gap-5">
+          <div>
+            <label class="inquiry-label">Name *</label>
+            <input type="text" name="name" required class="inquiry-input" placeholder="Your name">
+          </div>
+          <div>
+            <label class="inquiry-label">Company</label>
+            <input type="text" name="company" class="inquiry-input" placeholder="Brand or company">
+          </div>
+        </div>
+
+        <div>
+          <label class="inquiry-label">Email *</label>
+          <input type="email" name="email" required class="inquiry-input" placeholder="your@email.com">
+        </div>
+
+        <div>
+          <label class="inquiry-label">Services Interested In</label>
+          <div class="grid grid-cols-2 gap-2 mt-2">
+            <?php foreach (['Brand Strategy', 'Branding & Production', 'Web Design', 'Media Buying', 'Content & Social', 'Lifecycle Marketing'] as $svc): ?>
+            <label class="inquiry-checkbox">
+              <input type="checkbox" name="services[]" value="<?php echo htmlspecialchars($svc); ?>">
+              <span><?php echo htmlspecialchars($svc); ?></span>
+            </label>
+            <?php endforeach; ?>
+          </div>
+        </div>
+
+        <div>
+          <label class="inquiry-label">Budget Range</label>
+          <select name="budget" class="inquiry-input">
+            <option value="">Select a range...</option>
+            <option value="under-5k">Under $5K</option>
+            <option value="5k-15k">$5K – $15K</option>
+            <option value="15k-30k">$15K – $30K</option>
+            <option value="30k-plus">$30K+</option>
+            <option value="not-sure">Not sure yet</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="inquiry-label">Message *</label>
+          <textarea name="message" required rows="5" class="inquiry-input" placeholder="Tell us about your project, timeline, and goals..."></textarea>
+        </div>
+
+        <div>
+          <button type="submit" class="inquiry-submit" id="inquiry-submit">
+            Send Inquiry <i class="hn hn-arrow-right" style="font-size: 13px; margin-left: 6px;"></i>
+          </button>
+        </div>
+
+        <div id="formMessage" style="display: none;"></div>
+      </form>
+
     </div>
   </div>
 </section>
@@ -124,7 +199,7 @@
 
 <!-- Final CTA -->
 <section class="relative overflow-hidden">
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-9xl text-white opacity-5 pointer-events-none whitespace-nowrap" style="font-size: clamp(100px, 18vw, 260px);">Go</div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none whitespace-nowrap" style="font-family: 'lores-28', monospace; font-weight: 400; font-size: clamp(100px, 18vw, 260px); color: rgba(255,255,255,0.04); user-select: none;">Go</div>
 
   <div class="relative z-10 px-12 py-32 text-center">
     <div class="text-xs font-bold tracking-wider text-accent uppercase mb-6 flex justify-center items-center gap-2">

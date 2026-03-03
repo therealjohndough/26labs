@@ -267,26 +267,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (response.ok) {
                     messageDiv.className = 'form-feedback success';
+                    messageDiv.style.display = 'block';
                     messageDiv.textContent = data.message;
                     inquiryForm.reset();
-
-                    // Scroll to message
                     messageDiv.scrollIntoView({ behavior: 'smooth' });
                 } else if (response.status === 422) {
-                    // Validation errors
                     messageDiv.className = 'form-feedback error';
+                    messageDiv.style.display = 'block';
                     const errors = data.errors;
-                    const errorMessages = Object.values(errors)
-                        .flat()
-                        .join('\n');
-                    messageDiv.textContent = errorMessages;
+                    messageDiv.textContent = Object.values(errors).flat().join('\n');
                 } else {
                     messageDiv.className = 'form-feedback error';
+                    messageDiv.style.display = 'block';
                     messageDiv.textContent = data.error || 'An error occurred';
                 }
             } catch (error) {
                 messageDiv.className = 'form-feedback error';
-                messageDiv.textContent = 'Failed to submit form. Please try again.';
+                messageDiv.style.display = 'block';
+                messageDiv.textContent = 'Failed to submit. Please try again.';
                 console.error('Form submission error:', error);
             }
         });

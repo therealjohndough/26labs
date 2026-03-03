@@ -144,7 +144,7 @@ $case_studies = $case_studies ?? [];
         <i class="hn hn-sparkles" style="font-size: 11px; color: #D9FF5C; line-height: 1;"></i>
         Selected Work
       </div>
-      <a href="/work" class="text-xs tracking-widest text-text-secondary/50 hover:text-white uppercase border-b border-text-secondary/25 pb-0.5" style="display: inline-flex; align-items: center; gap: 6px;">View All Cases <i class="hn hn-external-link" style="font-size: 11px;"></i></a>
+      <a href="/contact" class="text-xs tracking-widest text-text-secondary/50 hover:text-white uppercase border-b border-text-secondary/25 pb-0.5" style="display: inline-flex; align-items: center; gap: 6px;">Start a Project <i class="hn hn-arrow-right" style="font-size: 11px;"></i></a>
     </div>
 
     <h2 style="font-family: 'lores-9-wide-bold-alt-oaklan', monospace; font-weight: 400; font-size: clamp(22px, 3vw, 44px); line-height: 1.25; color: #FFFFFF; margin-bottom: 64px; max-width: 48rem;">We deliver outcomes,<br>not services.</h2>

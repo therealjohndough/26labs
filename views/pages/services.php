@@ -7,27 +7,27 @@ $services = $services ?? [];
 <!-- Page Hero -->
 <section class="px-12 py-32 border-b border-border relative overflow-hidden">
   <!-- Background text -->
-  <div class="absolute top-1/2 left-12 -translate-y-1/2 font-serif text-white opacity-5 pointer-events-none whitespace-nowrap" style="font-size: clamp(80px, 14vw, 200px);">Services</div>
+  <div class="absolute top-1/2 left-12 -translate-y-1/2 pointer-events-none whitespace-nowrap" style="font-family: 'lores-28', monospace; font-weight: 400; font-size: clamp(80px, 14vw, 200px); color: rgba(255,255,255,0.04); user-select: none;">Services</div>
 
   <div class="relative z-10">
     <div class="mb-6 text-xs font-bold tracking-wider text-accent uppercase flex items-center gap-2">
       <span class="inline-block w-2 h-2 bg-accent rounded-full animate-pulse"></span>
       What We Do
     </div>
-    <h1 class="font-serif text-5xl md:text-6xl font-normal leading-tight mb-10 max-w-3xl">We build brands that move markets.</h1>
+    <h1 class="leading-tight mb-10 max-w-3xl" style="font-family: 'lores-21-serif', monospace; font-weight: 400; font-size: clamp(32px, 4.5vw, 60px); color: #FFFFFF;">We build brands that move markets.</h1>
     <p class="text-base text-text-secondary max-w-2xl leading-relaxed mb-8">From deep strategy to deployable assets — every engagement ends in real results. No fluff. No decks that collect dust. Just work that drives revenue and builds legacy.</p>
     
     <div class="flex gap-24 text-sm">
       <div>
-        <div class="font-serif text-4xl text-white mb-1">6</div>
+        <div class="mb-1" style="font-family: 'lores-9-wide', monospace; font-weight: 400; font-size: clamp(28px, 3vw, 48px); color: #FFFFFF;">6</div>
         <div class="text-text-secondary/45">Core Practice Areas</div>
       </div>
       <div>
-        <div class="font-serif text-4xl text-white mb-1">$2M+</div>
+        <div class="mb-1" style="font-family: 'lores-9-wide', monospace; font-weight: 400; font-size: clamp(28px, 3vw, 48px); color: #FFFFFF;">$2M+</div>
         <div class="text-text-secondary/45">Ad Spend Managed</div>
       </div>
       <div>
-        <div class="font-serif text-4xl text-white mb-1">25+</div>
+        <div class="mb-1" style="font-family: 'lores-9-wide', monospace; font-weight: 400; font-size: clamp(28px, 3vw, 48px); color: #FFFFFF;">25+</div>
         <div class="text-text-secondary/45">Years of Experience</div>
       </div>
     </div>
@@ -136,7 +136,7 @@ $services = $services ?? [];
     <div class="grid grid-cols-3 gap-0.5 bg-mid">
       <div class="bg-mid p-12">
         <div class="w-7 h-1 bg-accent mb-6"></div>
-        <p class="font-serif text-lg leading-relaxed mb-8 text-text-secondary/75">
+        <p class="text-lg leading-relaxed mb-8 text-text-secondary/75">
           "They don't just design — they think. John understood our positioning problem before we finished describing it. The work practically sold itself."
         </p>
         <div class="text-sm font-semibold text-white">Michael T.</div>
@@ -144,7 +144,7 @@ $services = $services ?? [];
       </div>
       <div class="bg-mid p-12">
         <div class="w-7 h-1 bg-accent mb-6"></div>
-        <p class="font-serif text-lg leading-relaxed mb-8 text-text-secondary/75">
+        <p class="text-lg leading-relaxed mb-8 text-text-secondary/75">
           "We came in with a messy identity and left with a brand system that finally matched our ambition. The clarity they brought to our messaging was worth every dollar."
         </p>
         <div class="text-sm font-semibold text-white">Adrienne K.</div>
@@ -152,7 +152,7 @@ $services = $services ?? [];
       </div>
       <div class="bg-mid p-12">
         <div class="w-7 h-1 bg-accent mb-6"></div>
-        <p class="font-serif text-lg leading-relaxed mb-8 text-text-secondary/75">
+        <p class="text-lg leading-relaxed mb-8 text-text-secondary/75">
           "No fluff. No revisions theater. Just sharp strategy and work that actually launched. Case Study Labs is the real deal in this space."
         </p>
         <div class="text-sm font-semibold text-white">Derek W.</div>
@@ -164,7 +164,7 @@ $services = $services ?? [];
 
 <!-- CTA -->
 <section class="border-b border-border relative overflow-hidden">
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-9xl text-white opacity-5 pointer-events-none whitespace-nowrap" style="font-size: clamp(100px, 18vw, 260px);">Let's Go</div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none whitespace-nowrap" style="font-family: 'lores-28', monospace; font-weight: 400; font-size: clamp(100px, 18vw, 260px); color: rgba(255,255,255,0.04); user-select: none;">Let's Go</div>
 
   <div class="relative z-10 px-12 py-32 text-center">
     <div class="text-xs font-bold tracking-wider text-accent uppercase mb-6 flex justify-center items-center gap-2">

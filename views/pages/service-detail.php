@@ -24,7 +24,7 @@ $case_studies = $case_studies ?? [];
         <span class="inline-block w-2 h-2 bg-accent rounded-full animate-pulse"></span>
         <?= htmlspecialchars($service['title']) ?>
       </div>
-      <h1 class="font-serif text-5xl md:text-6xl font-normal leading-tight">
+      <h1 class="leading-tight" style="font-family: 'lores-21-serif', monospace; font-weight: 400; font-size: clamp(32px, 4.5vw, 60px); color: #FFFFFF;">
         The foundation everything else is built on.
       </h1>
     </div>
@@ -147,7 +147,7 @@ $case_studies = $case_studies ?? [];
 
 <!-- CTA Band -->
 <section class="border-b border-border relative overflow-hidden">
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif text-9xl text-white opacity-5 pointer-events-none whitespace-nowrap" style="font-size: clamp(100px, 18vw, 260px);">Strategy</div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none whitespace-nowrap" style="font-family: 'lores-28', monospace; font-weight: 400; font-size: clamp(100px, 18vw, 260px); color: rgba(255,255,255,0.04); user-select: none;">Strategy</div>
 
   <div class="relative z-10 px-12 py-32 text-center">
     <div class="text-xs font-bold tracking-wider text-accent uppercase mb-6 flex justify-center items-center gap-2">

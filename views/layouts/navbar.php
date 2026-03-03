@@ -16,7 +16,6 @@ $currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
       <li><a href="/" class="text-xs tracking-widest text-text-secondary/45 hover:text-white uppercase transition <?= $currentPath === '/' ? 'text-white' : '' ?>">Home</a></li>
       <li><a href="/services" class="text-xs tracking-widest text-text-secondary/45 hover:text-white uppercase transition <?= strpos($currentPath, '/services') === 0 ? 'text-white' : '' ?>">Services</a></li>
       <li><a href="/contact" class="text-xs tracking-widest text-text-secondary/45 hover:text-white uppercase transition <?= $currentPath === '/contact' ? 'text-white' : '' ?>">Contact</a></li>
-      <li><a href="/admin/login" class="text-xs tracking-widest text-text-secondary/45 hover:text-white uppercase transition">Admin</a></li>
     </ul>
 
     <!-- Desktop CTA -->
@@ -35,7 +34,6 @@ $currentPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     <a href="/" class="mobile-menu-link <?= $currentPath === '/' ? 'is-active' : '' ?>">Home</a>
     <a href="/services" class="mobile-menu-link <?= strpos($currentPath, '/services') === 0 ? 'is-active' : '' ?>">Services</a>
     <a href="/contact" class="mobile-menu-link <?= $currentPath === '/contact' ? 'is-active' : '' ?>">Contact</a>
-    <a href="/admin/login" class="mobile-menu-link">Admin</a>
     <a href="https://calendar.app.google/wjzdm2J4EUE1oxh36" target="_blank" class="mobile-menu-cta">
       <i class="hn hn-calender" style="font-size: 13px;"></i> Schedule a Call
     </a>
