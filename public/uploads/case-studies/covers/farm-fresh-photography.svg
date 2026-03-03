@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Farm Fresh Product Photography</title>
+  <desc id="desc">Gradient cover art for the Farm Fresh product photography case study.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f1316"/>
+      <stop offset="40%" stop-color="#182429"/>
+      <stop offset="100%" stop-color="#232013"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="18%" cy="22%" r="30%">
+      <stop offset="0%" stop-color="#b8ff5c" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#b8ff5c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="76%" cy="18%" r="26%">
+      <stop offset="0%" stop-color="#ffd65e" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#ffd65e" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="rgba(255,255,255,0.08)"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#glow1)"/>
+  <rect width="1600" height="900" fill="url(#glow2)"/>
+  <rect width="1600" height="900" fill="url(#grid)" opacity="0.18"/>
+
+  <circle cx="1215" cy="470" r="190" fill="none" stroke="#d9ff5c" stroke-opacity="0.12" stroke-width="2"/>
+  <circle cx="1215" cy="470" r="250" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="2"/>
+  <text x="1085" y="525" fill="#ffffff" opacity="0.08" font-family="Helvetica, Arial, sans-serif" font-size="300" font-weight="700" letter-spacing="-8">FF</text>
+
+  <text x="110" y="125" fill="#d9ff5c" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="6">CASE STUDY LABS</text>
+  <text x="110" y="390" fill="#ffffff" font-family="Helvetica, Arial, sans-serif" font-size="92" font-weight="700">Farm Fresh!</text>
+  <text x="110" y="490" fill="#ffffff" font-family="Helvetica, Arial, sans-serif" font-size="78" font-weight="300">Product Photography</text>
+  <text x="110" y="590" fill="#d7dfdb" font-family="Helvetica, Arial, sans-serif" font-size="34" font-weight="400">Black-background product shots built for retail, web, and campaign use.</text>
+
+  <rect x="110" y="690" width="250" height="10" rx="5" fill="#d9ff5c"/>
+  <text x="110" y="770" fill="#d7dfdb" font-family="Helvetica, Arial, sans-serif" font-size="28" font-weight="400">Clarity, texture, and shelf appeal.</text>
+</svg>

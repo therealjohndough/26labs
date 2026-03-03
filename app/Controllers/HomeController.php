@@ -103,7 +103,9 @@ class HomeController {
 
         $description = trim(strip_tags(html_entity_decode($caseStudy['description'] ?? '', ENT_QUOTES, 'UTF-8')));
         $metaDescription = mb_substr($description, 0, 160);
-        $imageUrl = $this->absoluteUrl((string) ($caseStudy['hero_image'] ?? ''));
+        $heroPath = (string) ($caseStudy['hero_image'] ?? '');
+        $socialImagePath = $heroPath !== '' ? $heroPath : $this->fallbackCoverPath($slug);
+        $imageUrl = $this->absoluteUrl($socialImagePath);
         $jsonLd = json_encode([
             '@context' => 'https://schema.org',
             '@type' => 'CreativeWork',
@@ -214,5 +216,12 @@ class HomeController {
         }
 
         return $baseUrl . '/' . ltrim($path, '/');
+    }
+
+    private function fallbackCoverPath(string $slug): string {
+        $relativePath = '/uploads/case-studies/covers/' . $slug . '.svg';
+        $absolutePath = APP_ROOT . '/public' . $relativePath;
+
+        return file_exists($absolutePath) ? $relativePath : '';
     }
 }
