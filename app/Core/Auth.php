@@ -27,7 +27,7 @@ class Auth {
     public static function setSession(int $userId): void {
         $_SESSION[self::SESSION_KEY] = $userId;
         $_SESSION['_session_created'] = time();
-        $_SESSION['_user_ip'] = $this->getUserIP();
+        $_SESSION['_user_ip'] = self::getUserIP();
         $_SESSION['_user_agent'] = $_SERVER['HTTP_USER_AGENT'] ?? '';
     }
 
