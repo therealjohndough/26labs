@@ -6,9 +6,8 @@
     <title><?php echo $title ?? 'Admin'; ?> - 26 Labs</title>
     <link rel="stylesheet" href="/css/design_tokens.css">
     <link rel="stylesheet" href="/css/admin.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+    <link rel="stylesheet" href="https://use.typekit.net/snz1mha.css">
 </head>
 <body class="admin-layout">
     <aside class="admin-sidebar" id="admin-sidebar">
