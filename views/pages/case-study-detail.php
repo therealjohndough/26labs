@@ -6,7 +6,17 @@ if (!isset($caseStudy) || !$caseStudy) {
 
 $description = html_entity_decode($caseStudy['description'] ?? '', ENT_QUOTES, 'UTF-8');
 $galleryImages = json_decode(html_entity_decode($caseStudy['gallery_images'] ?? '[]', ENT_QUOTES, 'UTF-8'), true);
-$galleryImages = is_array($galleryImages) ? array_values(array_filter($galleryImages, 'is_string')) : [];
+$galleryImages = is_array($galleryImages) ? array_values(array_filter($galleryImages, static function ($image): bool {
+    if (!is_string($image) || $image === '') {
+        return false;
+    }
+
+    if (preg_match('#^https?://#i', $image)) {
+        return true;
+    }
+
+    return file_exists(APP_ROOT . '/public/' . ltrim($image, '/'));
+})) : [];
 $tags = array_filter(array_map('trim', explode(',', (string) ($caseStudy['tags'] ?? ''))));
 $services = array_filter(array_map('trim', explode(',', (string) ($caseStudy['services_provided'] ?? ''))));
 ?>
@@ -59,7 +69,7 @@ $services = array_filter(array_map('trim', explode(',', (string) ($caseStudy['se
         <div class="text-xs tracking-widest text-text-secondary/50 uppercase mb-4">Tags</div>
         <div class="flex flex-wrap gap-3">
           <?php foreach ($tags as $tag): ?>
-          <span class="px-3 py-2 text-xs tracking-widest uppercase border border-border text-text-secondary/65"><?php echo htmlspecialchars($tag); ?></span>
+          <a href="/work?tag=<?php echo urlencode($tag); ?>" class="px-3 py-2 text-xs tracking-widest uppercase border border-border text-text-secondary/65 hover:text-white hover:border-white transition"><?php echo htmlspecialchars($tag); ?></a>
           <?php endforeach; ?>
         </div>
       </div>
