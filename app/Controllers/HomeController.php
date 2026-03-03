@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Core\Config;
 use App\Core\CSRF;
 use App\Core\Validator;
 use App\Models\Inquiry;
@@ -102,6 +103,7 @@ class HomeController {
 
         $description = trim(strip_tags(html_entity_decode($caseStudy['description'] ?? '', ENT_QUOTES, 'UTF-8')));
         $metaDescription = mb_substr($description, 0, 160);
+        $imageUrl = $this->absoluteUrl((string) ($caseStudy['hero_image'] ?? ''));
         $jsonLd = json_encode([
             '@context' => 'https://schema.org',
             '@type' => 'CreativeWork',
@@ -112,14 +114,14 @@ class HomeController {
                 'name' => 'Case Study Labs',
             ],
             'dateCreated' => $caseStudy['year'],
-            'image' => $caseStudy['hero_image'],
+            'image' => $imageUrl,
         ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 
         $this->render('pages/case-study-detail', [
             'title' => $caseStudy['title'] . ' - Case Study Labs',
             'caseStudy' => $caseStudy,
             'meta_description' => $metaDescription,
-            'og_image' => $caseStudy['hero_image'] ?? '',
+            'og_image' => $imageUrl,
             'json_ld' => $jsonLd ?: '',
             'csrf_token' => CSRF::getToken(),
             'csrf_field' => CSRF::getFieldName(),
@@ -198,5 +200,19 @@ class HomeController {
         extract($data);
         $__view = $view;
         require __DIR__ . '/../../views/layouts/app.php';
+    }
+
+    private function absoluteUrl(string $path): string {
+        if ($path === '' || preg_match('#^https?://#i', $path)) {
+            return $path;
+        }
+
+        $baseUrl = rtrim((string) Config::get('APP_URL', ''), '/');
+
+        if ($baseUrl === '') {
+            return $path;
+        }
+
+        return $baseUrl . '/' . ltrim($path, '/');
     }
 }
