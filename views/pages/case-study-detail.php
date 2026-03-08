@@ -17,6 +17,21 @@ $galleryImages = is_array($galleryImages) ? array_values(array_filter($galleryIm
 
     return file_exists(APP_ROOT . '/public/' . ltrim($image, '/'));
 })) : [];
+$caseStudySlug = (string) ($caseStudy['slug'] ?? '');
+
+if ($caseStudySlug === 'farm-fresh-brand-identity' && count($galleryImages) >= 3) {
+    $removeIndexes = [
+        count($galleryImages) - 2,
+        count($galleryImages) - 3,
+    ];
+
+    $galleryImages = array_values(array_filter(
+        $galleryImages,
+        static fn($image, $index): bool => !in_array($index, $removeIndexes, true),
+        ARRAY_FILTER_USE_BOTH
+    ));
+}
+
 $tags = array_filter(array_map('trim', explode(',', (string) ($caseStudy['tags'] ?? ''))));
 $services = array_filter(array_map('trim', explode(',', (string) ($caseStudy['services_provided'] ?? ''))));
 ?>
