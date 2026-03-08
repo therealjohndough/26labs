@@ -86,6 +86,7 @@ class Router {
 
         // 404
         http_response_code(404);
+        header('X-Robots-Tag: noindex, follow');
         echo "404 Not Found";
     }
 

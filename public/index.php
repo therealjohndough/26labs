@@ -30,6 +30,7 @@ require_once APP_ROOT . '/vendor/autoload.php';
 // Load configuration
 use App\Core\Config;
 use App\Core\Database;
+use App\Core\LegacyRedirects;
 use App\Core\Router;
 
 Config::load(APP_ROOT . '/.env');
@@ -45,6 +46,13 @@ Database::initialize(
 
 // Setup routing
 $router = new Router();
+
+// Permanent redirects for legacy URL preservation
+LegacyRedirects::handle();
+
+// SEO utility routes
+$router->get('/robots.txt', 'SeoController@robots');
+$router->get('/sitemap.xml', 'SeoController@sitemap');
 
 // Frontend routes
 $router->get('/', 'HomeController@index');

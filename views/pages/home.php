@@ -209,6 +209,43 @@ $case_studies = $case_studies ?? ($caseStudies ?? []);
   </div>
 </section>
 
+<!-- Brand Texture Section -->
+<section class="border-b border-border">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-0.5">
+    <div class="relative overflow-hidden" style="min-height: 28rem;">
+      <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/uploads/case-studies/farm-fresh-brand-identity/smartmockups-organic-posters.jpg');"></div>
+      <div class="absolute inset-0" style="background:
+        linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.42) 100%),
+        linear-gradient(135deg, rgba(11,63,57,0.16) 0%, rgba(31,44,39,0.52) 100%);"></div>
+      <div class="absolute left-6 top-6 flex flex-wrap gap-2">
+        <span class="px-3 py-1 text-[10px] tracking-widest uppercase border border-white/25 bg-black/25 text-white/80">Brand Texture</span>
+        <span class="px-3 py-1 text-[10px] tracking-widest uppercase border border-white/25 bg-black/25 text-white/80">Environmental Graphic</span>
+      </div>
+      <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
+        <div class="text-xs tracking-widest text-accent uppercase mb-3">Visible Systems</div>
+        <div class="max-w-md text-base text-text-secondary/85 leading-relaxed">The best identity work does not live in a deck. It shows up in the world with enough clarity to still feel intentional when it is weathered, cropped, or seen in motion.</div>
+      </div>
+    </div>
+
+    <div class="px-12 py-20 bg-white/2 flex flex-col justify-center">
+      <div class="text-xs tracking-widest text-text-secondary/45 uppercase mb-6" style="display: inline-flex; align-items: center; gap: 8px;">
+        <i class="hn hn-image" style="font-size: 11px; color: #D9FF5C; line-height: 1;"></i>
+        Design In Context
+      </div>
+      <h2 style="font-family: 'lores-9-wide-bold-alt-oaklan', monospace; font-weight: 400; font-size: clamp(24px, 3vw, 42px); line-height: 1.2; color: #FFFFFF; max-width: 32rem; margin-bottom: 24px;">A brand should hold up beyond the logo file.</h2>
+      <p class="text-base text-text-secondary/70 leading-relaxed max-w-xl mb-10">We place brand systems into believable environments early, because identity only matters if it survives the real world. Posters, retail surfaces, packaging, and social placements all stress-test whether the system is clear enough to scale.</p>
+      <div class="flex flex-wrap gap-3 mb-10">
+        <a href="/work?tag=<?php echo urlencode('branding'); ?>" class="px-4 py-2 text-xs tracking-widest uppercase border border-border text-text-secondary/70 hover:text-white hover:border-white transition">Branding</a>
+        <a href="/work?tag=<?php echo urlencode('visual identity'); ?>" class="px-4 py-2 text-xs tracking-widest uppercase border border-border text-text-secondary/70 hover:text-white hover:border-white transition">Visual Identity</a>
+        <a href="/work?tag=<?php echo urlencode('art direction'); ?>" class="px-4 py-2 text-xs tracking-widest uppercase border border-border text-text-secondary/70 hover:text-white hover:border-white transition">Art Direction</a>
+      </div>
+      <a href="/work/farm-fresh-brand-identity" class="text-xs tracking-widest text-text-secondary/45 uppercase hover:text-accent transition" style="display: inline-flex; align-items: center; gap: 8px;">
+        See The Farm Fresh Identity System <i class="hn hn-arrow-right" style="font-size: 11px;"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- Fit Check Section -->
 <section class="border-b border-border">
   <div class="grid grid-cols-2 gap-0.5">

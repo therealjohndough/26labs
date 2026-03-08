@@ -189,6 +189,26 @@ MAIL_PASS=your_password
 3. Submit test inquiry - should appear in admin panel
 4. Check database in phpMyAdmin - verify tables exist
 
+## Step 11: SEO Migration Tasks
+
+If you are replacing an existing live site, complete this before and after DNS cutover.
+
+1. Set production `.env`:
+
+```env
+APP_ENV=production
+APP_URL=https://casestudy-labs.com
+```
+
+2. Add URL mappings from old site paths to new paths in `config/redirects.php`.
+3. Verify these endpoints on production:
+   - `/robots.txt`
+   - `/sitemap.xml`
+4. Submit `/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
+5. Validate that old URLs return `301` and land on the expected new page.
+
+Use [`SEO_MIGRATION_CHECKLIST.md`](/workspaces/26labs/SEO_MIGRATION_CHECKLIST.md) for the full checklist.
+
 ## Common Issues & Solutions
 
 ### 404 Errors on All Pages

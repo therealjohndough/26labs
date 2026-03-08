@@ -19,8 +19,8 @@ $services = $services ?? [];
     
     <div class="flex gap-24 text-sm">
       <div>
-        <div class="mb-1" style="font-family: 'lores-9-wide', monospace; font-weight: 400; font-size: clamp(28px, 3vw, 48px); color: #FFFFFF;">6</div>
-        <div class="text-text-secondary/45">Core Practice Areas</div>
+        <div class="mb-1" style="font-family: 'lores-9-wide', monospace; font-weight: 400; font-size: clamp(28px, 3vw, 48px); color: #FFFFFF;">95%</div>
+        <div class="text-text-secondary/45">of our clients are in business today</div>
       </div>
       <div>
         <div class="mb-1" style="font-family: 'lores-9-wide', monospace; font-weight: 400; font-size: clamp(28px, 3vw, 48px); color: #FFFFFF;">500+</div>
